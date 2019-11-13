@@ -2127,6 +2127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5356873870493433928}
   - component: {fileID: 5408238403123114596}
+  - component: {fileID: -2552441422011582739}
   m_Layer: 0
   m_Name: Police
   m_TagString: NPC
@@ -2170,6 +2171,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2552441422011582739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358570976763549846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf2f35fd83fd6649a6eeb8835a660f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: police
 --- !u!1 &5358573336924762148
 GameObject:
   m_ObjectHideFlags: 0
