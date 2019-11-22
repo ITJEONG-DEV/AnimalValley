@@ -1,0 +1,79 @@
+TTSM,금속 낫
+TTSS,은 낫
+TTSG,금 낫
+TTHM,금속 괭이
+TTHS,은 괭이
+TTHG,금 괭이
+TTPM,금속 곡괭이
+TTPS,은 곡괭이
+TTPG,금 곡괭이
+TTHM,금속 삽
+TTHS,은 삽
+TTHG,금 삽
+TTWM,금속 물뿌리개
+TTWS,은 물뿌리개
+TTWG,금 물뿌리개
+TTAM,금속 도끼
+TTAS,은 도끼
+TTAG,금 도끼
+TTFM,금속 낚싯대
+TTFS,은 낚싯대
+TTFG,금 낚싯대
+THWM,금속 칼
+THWS,은 칼
+THWG,금 칼
+RCG0,밀
+RCG1,쌀
+RCV0,호박
+RCV1,당근
+RCV2,양배추
+RCV3,고구마
+RCV4,파프리카
+RCV8,토마토
+RCCR,갈대
+RCCW,흰꽃
+RCCS,해바라기
+RGWT,목재
+RGWS,튼튼한 목재
+RGRR,암석
+RGRH,단단한 암석
+RGGG,풀
+RGF0,사과
+RGF1,포도
+RGF2,레몬
+RGF3,오렌지
+RMOG,금 광석
+RMOS,은 광석
+RMOB,동 광석
+RMJD,다이아몬드
+RMJR,루비
+RMJS,사파이어
+RTDS,슬라임 조각
+RTDH,벌침
+RTDB,뼈막대
+RFSG,고등어
+RFSY,연어
+RFSS,상어
+RFPN,송사리
+RFPB,붕어
+FSMS,창고
+FSMB,용광로
+FSMV,비닐하우스
+FSMF,모닥불
+FSMT,휴대용 횃불
+FFEB,침대
+FFES,소파
+BFS0,빵
+BFS1,밥
+BFS2,생선구이
+BFS3,과일잼
+BFM0,호박죽
+BFM1,당근수프
+BFM2,양배추찜
+BFM3,고구마빵
+BFM4,샐러드
+BFM5,스파게티
+BEFC,일반 비료
+BEFH,고급 비료
+BED0,HP 물약
+BED5,에너지 물약

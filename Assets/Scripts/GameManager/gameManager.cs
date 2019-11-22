@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Settings;
 
 public class gameManager : MonoBehaviour
 {
@@ -14,12 +15,12 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = 0.0f;
-        GameTime.day = 1;
-        GameTime.hour = 6;
-        GameTime.minute = 0;
+        TimeSettings();
 
-        ShowTime();
+        ItemSettings();
+
+        Item item1 = new Item("TTSM");
+        Item item2 = new Item("BED5");
     }
 
     // Update is called once per frame
@@ -56,9 +57,29 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    void TimeSettings()
+    {
+        time = 0.0f;
+        GameTime.day = 1;
+        GameTime.hour = 6;
+        GameTime.minute = 0;
+        
+        ShowTime();
+    }
+
+    void ItemSettings()
+    {
+        Settings.RoadItemName();
+    }
+
     void ShowTime()
     {
         Debug.Log("Day " + GameTime.day.ToString("D2") + " " + GameTime.hour.ToString("D2") + ":" + GameTime.minute.ToString("D2"));
+    }
+
+    string GetTime()
+    {
+        return GameTime.day.ToString("D2") + " " + GameTime.hour.ToString("D2") + " " + GameTime.minute.ToString("D2");
     }
 
     int Day
