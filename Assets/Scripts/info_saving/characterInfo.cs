@@ -3,33 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 public struct info_
 {
-    public static GameObject chestAcc;
-    public static GameObject headAcc;
-    public static Material skin;
-    public static Material face;
+    public static int chestAcc;
+    public static int headAcc;
+    public static int skin;
+    public static int face;
     public static int animal = 0;
 
-    public void setAnimal(int n)
+    public void setAniType(int n)
     {
         animal = n;
     }
 
-    public void setFace(Material face_)
+    public void setFace(int face_)
     {
         face = face_;
     }
 
-    public void setSkin(Material skin_)
+    public void setSkin(int skin_)
     {
         skin = skin_;
     }
 
-    public void set_chestAccessories(GameObject chestAcc_)
+    public void set_chestAccessories(int chestAcc_)
     {
         chestAcc = chestAcc_;
     }
 
-    public void set_headAccessories(GameObject headAcc_)
+    public void set_headAccessories(int headAcc_)
     {
         headAcc= headAcc_;
     }
@@ -39,20 +39,20 @@ public struct info_
         return animal;
     }
 
-    public Material getFace()
+    public int getFace()
     {
         return face;
     }
-    public Material getSkin()
+    public int getSkin()
     {
         return skin;
     }
-    public GameObject get_chestAcc()
+    public int get_chestAcc()
     {
         return chestAcc;
     }
 
-    public GameObject get_headAcc()
+    public int get_headAcc()
     {
         return headAcc;
     }
@@ -64,9 +64,9 @@ public struct info_
 //캐릭터 선택 확인 버튼 클릭시로 생각중...
 public class characterInfo : MonoBehaviour
 {
-    public GameObject face1;
+    public Material[] faces;
     public GameObject[] zoo;
-
+    string name;
     //캐릭터 정보 저장된것들
     //public static GameObject chestAcc;
     //public static GameObject headAcc;
@@ -90,57 +90,94 @@ public class characterInfo : MonoBehaviour
     //animal + face + skin + headAcc + chestAcc
     public void setAnimal()
     {
-        if(GameObject.FindGameObjectWithTag("bunny"))
+        if(GameObject.FindGameObjectWithTag("bunny").activeSelf)
         {
-            info.setAnimal(0);
+            info.setAniType(0);
+            name = "Bunny";
         }
-        if (GameObject.FindGameObjectWithTag("cat"))
+        else if (GameObject.FindGameObjectWithTag("cat").activeSelf)
         {
-            info.setAnimal(1);
+            info.setAniType(1);
+            name = "Cat";
         }
-        if (GameObject.FindGameObjectWithTag("bear"))
+        else if (GameObject.FindGameObjectWithTag("bear").activeSelf)
         {
-            info.setAnimal(2);
+            info.setAniType(2);
+            name = "Bear";
         }
-        if (GameObject.FindGameObjectWithTag("dog"))
+        else if (GameObject.FindGameObjectWithTag("dog").activeSelf)
         {
-            info.setAnimal(3);
+            info.setAniType(3);
+            name = "Dog";
         }
-        if (GameObject.FindGameObjectWithTag("frog"))
+        else if (GameObject.FindGameObjectWithTag("frog").activeSelf)
         {
-            info.setAnimal(4);
+            info.setAniType(4);
+            name = "Frog";
         }
-        if (GameObject.FindGameObjectWithTag("monkey"))
+        else if (GameObject.FindGameObjectWithTag("monkey").activeSelf)
         {
-            info.setAnimal(5);
+            info.setAniType(5);
+            name = "Monkey";
         }
 
+        Debug.Log("동물이름: "+ name);
+
+        
         int typeA = info.getAnimal();
-        info.setFace(zoo[typeA].transform.Find("Face01").transform.GetComponent<Renderer>().material);
+        string faceName=zoo[typeA].transform.Find("Mesh").transform.Find("Face01").GetComponent<SkinnedMeshRenderer>().material.name;
+      
+        for (int i=1; i<29; i++)
+        {
+            Debug.Log(faceName.Substring(4, 2));
+            if (int.Parse(faceName.Substring(4,2)) == i)
+            {
 
-        info.setSkin(zoo[typeA].transform.Find("Mesh").transform.GetComponent<Renderer>().material);
-        Debug.Log(info.getSkin().name);
+                info.setFace(i);
+            }
+
+        }
+        Debug.Log("얼굴 번호 : "+info.getFace());
 
 
-        int num_h = zoo[typeA].transform.Find("Accessories_locator").transform.childCount;
+        string _material = zoo[typeA].transform.Find("Mesh").transform.Find(name).GetComponent<SkinnedMeshRenderer>().material.name;
+
+        for (int i = 0; i < 15; i++)
+        {
+            Debug.Log(_material.Substring(name.Length, 2));
+            if (int.Parse(_material.Substring(name.Length, 2)) == i)
+            {
+                info.setSkin(i);
+            }
+        }
+        Debug.Log("피부 번호 : " + info.getSkin());
+
+
+
+        int num_h = 14;
         for(int i=0; i< num_h; i++)
         {
-            if(zoo[typeA].transform.Find("Accessories_locator").transform.GetChild(i).gameObject.activeSelf)
+            if(zoo[typeA].transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Accessories_locator").transform.GetChild(i).gameObject.activeSelf==true)
             {
-                info.set_headAccessories(zoo[typeA].transform.Find("Accessories_locator").transform.GetChild(i).gameObject);
+                Debug.Log(zoo[typeA].transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Accessories_locator").transform.GetChild(i).name);
+                info.set_chestAccessories(i);
             }
 
         }
+        Debug.Log("흉부 악세서리 번호 : " + info.get_chestAcc());
 
-        int num_c = zoo[typeA].transform.Find("Head_Accessories_locator").transform.childCount;
+
+        int num_c = 13;
         for (int i = 0; i < num_c; i++)
         {
-            if (zoo[typeA].transform.Find("Head_Accessories_locator").transform.GetChild(i).gameObject.activeSelf)
+            if (zoo[typeA].transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Neck_M").transform.Find("Head_M").transform.Find("Head_Accessories_locator").transform.GetChild(i).gameObject.activeSelf==true)
             {
-                info.set_chestAccessories(zoo[typeA].transform.Find("Head_Accessories_locator").transform.GetChild(i).gameObject);
+                info.set_headAccessories(i);
             }
 
         }
+
+        Debug.Log("머리 악세서리 번호 : " + info.get_headAcc());
 
     }
 }
