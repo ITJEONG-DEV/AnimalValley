@@ -1,62 +1,52 @@
 fileFormatVersion: 2
-guid: 43f82b1435f114d40a501629e42b6f22
+guid: 736c972631e8ebb428007f959f4b1741
+timeCreated: 1505226931
+licenseType: Store
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: House_9
-  - first:
-      43: 4300002
-    second: House_9.001
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: House_9
+    4300002: House_9.001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CDark
-    second: {fileID: 2100000, guid: 79e05dc657f995743b4660b2e5bb0996, type: 2}
+    second: {fileID: 2100000, guid: 8fc2a13128c12444aafb27eb33ac309b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHouse_7_Color_Lighter
-    second: {fileID: 2100000, guid: 26441e54a885bbb47a75a41ae226ea3c, type: 2}
+    second: {fileID: 2100000, guid: 74cbe4d47064db149b465c12a2e8cc4b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHouse_7_Foundation
-    second: {fileID: 2100000, guid: b766e82a4c117ea4abe8e6d7e74254cc, type: 2}
+    second: {fileID: 2100000, guid: c84da4fa54998cf42bb8542e6837de30, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHouse_7_Walls
-    second: {fileID: 2100000, guid: 3d9ec4b543a83304693b32c685bfaf2b, type: 2}
+    second: {fileID: 2100000, guid: 1c0c48e80a2f500428479035e9588cb7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWhite
-    second: {fileID: 2100000, guid: ca09949506e290e4dace04c566ccb7a0, type: 2}
+    second: {fileID: 2100000, guid: b7efb0c3f4ddd0340bfe69c730bb2e61, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWood1
-    second: {fileID: 2100000, guid: 29a9dcffb1660e341978a6c50d99a506, type: 2}
+    second: {fileID: 2100000, guid: d24c4979d464e284899a267262a3245e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CYellow_Roof
-    second: {fileID: 2100000, guid: cd30b9ef6181c8b43a951d8e99d05eac, type: 2}
+    second: {fileID: 2100000, guid: 5ff5a91c553d6204881e4328599677bf, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -75,7 +65,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -90,7 +79,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 3
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
@@ -98,14 +86,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -116,14 +99,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 0
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -133,8 +112,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

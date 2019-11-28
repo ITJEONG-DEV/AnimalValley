@@ -1,109 +1,19 @@
 fileFormatVersion: 2
-guid: d171a2d9fc5cc484db43ec19e1fe17a7
+guid: 1f632ce387b24dc41a81cc15b0b46cbb
+timeCreated: 1505226925
+licenseType: Store
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: Watermill
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CBurgundy
-    second: {fileID: 2100000, guid: 6bbaac02f53a1b442b8e58f3ccac141e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CBurgundy_Bright
-    second: {fileID: 2100000, guid: 6d734750b2e369649927a1dc0b356a02, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CDark
-    second: {fileID: 2100000, guid: 79e05dc657f995743b4660b2e5bb0996, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CMetal
-    second: {fileID: 2100000, guid: 6853c1c56fe2d624e93f6c18781fb31a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CShed_Red
-    second: {fileID: 2100000, guid: f44395cafc69a7a4b82e6f55fe522eb7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CWood_4
-    second: {fileID: 2100000, guid: d2e02affbffe7a24b8b790067c7a6796, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CWood_7
-    second: {fileID: 2100000, guid: 6952a8628a269674691ccb3e891a209b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: House_8_White_Darker
-    second: {fileID: 2100000, guid: 3dc780743a2cd6046b095f04f3482b88, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Watermill_Grey
-    second: {fileID: 2100000, guid: 8a2d6add1e4175046bc94f1720bcbc09, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Watermill_White
-    second: {fileID: 2100000, guid: 3926bc8c901e0a84d9e6c47ff625ea07, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Watermill_Wood.001
-    second: {fileID: 2100000, guid: 8fa05308b9e8e3b44b59a1145ec9f54f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Watermill_Wood2
-    second: {fileID: 2100000, guid: 12d15ae5dbf702a40ac1c8bf3a1d1abc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Watermill_Wood2_Brighter
-    second: {fileID: 2100000, guid: 1919b245c339a0949a72d9d42da2a2b3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Watermill_Wood2_Darker
-    second: {fileID: 2100000, guid: 836969e29b7252b44a042ae53d9c7359, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Watermill_Wood_Bright
-    second: {fileID: 2100000, guid: 88d272f68bb8db64d9622d6db461b484, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: White_Dark
-    second: {fileID: 2100000, guid: 9ff265a2ab48d9c49ae6e28167e41cda, type: 2}
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Watermill
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -116,8 +26,6 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -132,7 +40,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 3
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
@@ -140,14 +47,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -158,14 +60,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -175,8 +73,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

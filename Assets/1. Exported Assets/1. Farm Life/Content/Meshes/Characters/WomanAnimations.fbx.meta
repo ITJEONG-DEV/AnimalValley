@@ -1,290 +1,136 @@
 fileFormatVersion: 2
-guid: 7be72a47b4ced484890c71b083336622
+guid: ad02401dab23f3c42a2571d9b1024340
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Ankle_L
-  - first:
-      1: 100002
-    second: Ankle_R
-  - first:
-      1: 100004
-    second: Chest_M
-  - first:
-      1: 100006
-    second: Elbow_L
-  - first:
-      1: 100008
-    second: Elbow_R
-  - first:
-      1: 100010
-    second: Group
-  - first:
-      1: 100012
-    second: Head_M
-  - first:
-      1: 100014
-    second: HeadEnd_M
-  - first:
-      1: 100016
-    second: Hip_L
-  - first:
-      1: 100018
-    second: Hip_R
-  - first:
-      1: 100020
-    second: Knee_L
-  - first:
-      1: 100022
-    second: Knee_R
-  - first:
-      1: 100024
-    second: MiddleFinger1_L
-  - first:
-      1: 100026
-    second: MiddleFinger1_R
-  - first:
-      1: 100028
-    second: MiddleFinger2_L
-  - first:
-      1: 100030
-    second: MiddleFinger2_R
-  - first:
-      1: 100032
-    second: MiddleFinger3_L
-  - first:
-      1: 100034
-    second: MiddleFinger3_R
-  - first:
-      1: 100036
-    second: MiddleFinger4_L
-  - first:
-      1: 100038
-    second: MiddleFinger4_R
-  - first:
-      1: 100040
-    second: Neck_M
-  - first:
-      1: 100042
-    second: Root_M
-  - first:
-      1: 100044
-    second: Scapula_L
-  - first:
-      1: 100046
-    second: Scapula_R
-  - first:
-      1: 100048
-    second: Shoulder_L
-  - first:
-      1: 100050
-    second: Shoulder_R
-  - first:
-      1: 100052
-    second: Spine1_M
-  - first:
-      1: 100054
-    second: Toes_L
-  - first:
-      1: 100056
-    second: Toes_R
-  - first:
-      1: 100058
-    second: ToesEnd_L
-  - first:
-      1: 100060
-    second: ToesEnd_R
-  - first:
-      1: 100062
-    second: Woman
-  - first:
-      1: 100064
-    second: //RootNode
-  - first:
-      1: 100066
-    second: Wrist_L
-  - first:
-      1: 100068
-    second: Wrist_R
-  - first:
-      4: 400000
-    second: Ankle_L
-  - first:
-      4: 400002
-    second: Ankle_R
-  - first:
-      4: 400004
-    second: Chest_M
-  - first:
-      4: 400006
-    second: Elbow_L
-  - first:
-      4: 400008
-    second: Elbow_R
-  - first:
-      4: 400010
-    second: Group
-  - first:
-      4: 400012
-    second: Head_M
-  - first:
-      4: 400014
-    second: HeadEnd_M
-  - first:
-      4: 400016
-    second: Hip_L
-  - first:
-      4: 400018
-    second: Hip_R
-  - first:
-      4: 400020
-    second: Knee_L
-  - first:
-      4: 400022
-    second: Knee_R
-  - first:
-      4: 400024
-    second: MiddleFinger1_L
-  - first:
-      4: 400026
-    second: MiddleFinger1_R
-  - first:
-      4: 400028
-    second: MiddleFinger2_L
-  - first:
-      4: 400030
-    second: MiddleFinger2_R
-  - first:
-      4: 400032
-    second: MiddleFinger3_L
-  - first:
-      4: 400034
-    second: MiddleFinger3_R
-  - first:
-      4: 400036
-    second: MiddleFinger4_L
-  - first:
-      4: 400038
-    second: MiddleFinger4_R
-  - first:
-      4: 400040
-    second: Neck_M
-  - first:
-      4: 400042
-    second: Root_M
-  - first:
-      4: 400044
-    second: Scapula_L
-  - first:
-      4: 400046
-    second: Scapula_R
-  - first:
-      4: 400048
-    second: Shoulder_L
-  - first:
-      4: 400050
-    second: Shoulder_R
-  - first:
-      4: 400052
-    second: Spine1_M
-  - first:
-      4: 400054
-    second: Toes_L
-  - first:
-      4: 400056
-    second: Toes_R
-  - first:
-      4: 400058
-    second: ToesEnd_L
-  - first:
-      4: 400060
-    second: ToesEnd_R
-  - first:
-      4: 400062
-    second: Woman
-  - first:
-      4: 400064
-    second: //RootNode
-  - first:
-      4: 400066
-    second: Wrist_L
-  - first:
-      4: 400068
-    second: Wrist_R
-  - first:
-      43: 4300000
-    second: Woman
-  - first:
-      74: 7400000
-    second: WomanWalk
-  - first:
-      74: 7400002
-    second: WomanRun
-  - first:
-      74: 7400004
-    second: WomanIdle
-  - first:
-      74: 7400006
-    second: WomanBreathing
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Woman
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Chest_M
+    100006: Elbow_L
+    100008: Elbow_R
+    100010: Group
+    100012: Head_M
+    100014: HeadEnd_M
+    100016: Hip_L
+    100018: Hip_R
+    100020: Knee_L
+    100022: Knee_R
+    100024: MiddleFinger1_L
+    100026: MiddleFinger1_R
+    100028: MiddleFinger2_L
+    100030: MiddleFinger2_R
+    100032: MiddleFinger3_L
+    100034: MiddleFinger3_R
+    100036: MiddleFinger4_L
+    100038: MiddleFinger4_R
+    100040: Neck_M
+    100042: Root_M
+    100044: Scapula_L
+    100046: Scapula_R
+    100048: Shoulder_L
+    100050: Shoulder_R
+    100052: Spine1_M
+    100054: Toes_L
+    100056: Toes_R
+    100058: ToesEnd_L
+    100060: ToesEnd_R
+    100062: Woman
+    100064: //RootNode
+    100066: Wrist_L
+    100068: Wrist_R
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Chest_M
+    400006: Elbow_L
+    400008: Elbow_R
+    400010: Group
+    400012: Head_M
+    400014: HeadEnd_M
+    400016: Hip_L
+    400018: Hip_R
+    400020: Knee_L
+    400022: Knee_R
+    400024: MiddleFinger1_L
+    400026: MiddleFinger1_R
+    400028: MiddleFinger2_L
+    400030: MiddleFinger2_R
+    400032: MiddleFinger3_L
+    400034: MiddleFinger3_R
+    400036: MiddleFinger4_L
+    400038: MiddleFinger4_R
+    400040: Neck_M
+    400042: Root_M
+    400044: Scapula_L
+    400046: Scapula_R
+    400048: Shoulder_L
+    400050: Shoulder_R
+    400052: Spine1_M
+    400054: Toes_L
+    400056: Toes_R
+    400058: ToesEnd_L
+    400060: ToesEnd_R
+    400062: Woman
+    400064: //RootNode
+    400066: Wrist_L
+    400068: Wrist_R
+    4300000: Woman
+    7400000: WomanWalk
+    7400002: WomanRun
+    7400004: WomanIdle
+    7400006: WomanBreathing
+    9500000: //RootNode
+    13700000: Woman
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Cloth
-    second: {fileID: 2100000, guid: 0ec9193f171e73744b233664670e3fd7, type: 2}
+    second: {fileID: 2100000, guid: 92267067ebbbb9d4282cbbf5f09ab56c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Eyelash_pupil
-    second: {fileID: 2100000, guid: b188080d643ea4247bae7aaf5c8fed17, type: 2}
+    second: {fileID: 2100000, guid: de97c7b708e966143a68c364db5ba53c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Woman2_Iris
-    second: {fileID: 2100000, guid: 2b036a821071c6a45ad248db7fb56f04, type: 2}
+    second: {fileID: 2100000, guid: 3e9ab4916b57e5649a6826c29d2d8ea4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Woman_2_Boots
-    second: {fileID: 2100000, guid: 58f477763b73cb34c9fc7487b34d9e45, type: 2}
+    second: {fileID: 2100000, guid: 403b9f67f0e209e4384061eccd419cc7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Woman_2_Hair
-    second: {fileID: 2100000, guid: 5cc3e1465e3c47144a3723676968ff6b, type: 2}
+    second: {fileID: 2100000, guid: 3eb0dac09835fcb46a98573a005040c9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Woman_Eyes
-    second: {fileID: 2100000, guid: 97f1a2ddade88334d9485e3ca4293108, type: 2}
+    second: {fileID: 2100000, guid: 3f206f3b9caa57a4494ae3885fc9dc1f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Woman_Shirt
-    second: {fileID: 2100000, guid: c87626fdd95af6043a3b89a14feaceed, type: 2}
+    second: {fileID: 2100000, guid: 10cd789f9a419244f8ec689ad317b222, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Woman_Skin
-    second: {fileID: 2100000, guid: 5005ce1182a34324fa7c220f9d800ecf, type: 2}
+    second: {fileID: 2100000, guid: 850d07d0a312eff4eafab0c823ad8c8f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Woman_Skin_2
-    second: {fileID: 2100000, guid: 757ad33cab8526f469d088d98d17b56c, type: 2}
+    second: {fileID: 2100000, guid: bb849b35a4e438646855ceae11d61681, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Woman_Trousers
-    second: {fileID: 2100000, guid: 04b7c02d668eae04cac097f25bb7b998, type: 2}
+    second: {fileID: 2100000, guid: c979b2c8b1f6d81469fb80577cbf8622, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -303,7 +149,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -315,7 +160,6 @@ ModelImporter:
     - serializedVersion: 16
       name: WomanWalk
       takeName: WomanWalk
-      internalID: 7400000
       firstFrame: 1
       lastFrame: 50
       wrapMode: 0
@@ -344,7 +188,6 @@ ModelImporter:
     - serializedVersion: 16
       name: WomanRun
       takeName: WomanRun
-      internalID: 7400002
       firstFrame: 59
       lastFrame: 81
       wrapMode: 0
@@ -373,7 +216,6 @@ ModelImporter:
     - serializedVersion: 16
       name: WomanIdle
       takeName: WomanIdle
-      internalID: 7400004
       firstFrame: 90
       lastFrame: 200
       wrapMode: 0
@@ -402,7 +244,6 @@ ModelImporter:
     - serializedVersion: 16
       name: WomanBreathing
       takeName: WomanBreathing
-      internalID: 7400006
       firstFrame: 210
       lastFrame: 270
       wrapMode: 0
@@ -434,7 +275,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 0
@@ -442,13 +282,10 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
@@ -460,14 +297,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -477,8 +310,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

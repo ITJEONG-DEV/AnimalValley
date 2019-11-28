@@ -1,289 +1,129 @@
 fileFormatVersion: 2
-guid: 9d36b2eccfe37754fbb8205378f708bd
+guid: 6e6fb966e011bdb4f9ac177bdd79d2be
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Ankle_L
-  - first:
-      1: 100002
-    second: Ankle_R
-  - first:
-      1: 100004
-    second: Chest_M
-  - first:
-      1: 100006
-    second: Elbow_L
-  - first:
-      1: 100008
-    second: Elbow_R
-  - first:
-      1: 100010
-    second: Group
-  - first:
-      1: 100012
-    second: Head_M
-  - first:
-      1: 100014
-    second: HeadEnd_M
-  - first:
-      1: 100016
-    second: Hip_L
-  - first:
-      1: 100018
-    second: Hip_R
-  - first:
-      1: 100020
-    second: Knee_L
-  - first:
-      1: 100022
-    second: Knee_R
-  - first:
-      1: 100024
-    second: left
-  - first:
-      1: 100026
-    second: MiddleFinger1_L
-  - first:
-      1: 100028
-    second: MiddleFinger1_R
-  - first:
-      1: 100030
-    second: MiddleFinger2_L
-  - first:
-      1: 100032
-    second: MiddleFinger2_R
-  - first:
-      1: 100034
-    second: MiddleFinger3_L
-  - first:
-      1: 100036
-    second: MiddleFinger3_R
-  - first:
-      1: 100038
-    second: MiddleFinger4_L
-  - first:
-      1: 100040
-    second: MiddleFinger4_R
-  - first:
-      1: 100042
-    second: Neck_M
-  - first:
-      1: 100044
-    second: Root_M
-  - first:
-      1: 100046
-    second: Scapula_L
-  - first:
-      1: 100048
-    second: Scapula_R
-  - first:
-      1: 100050
-    second: Shoulder_L
-  - first:
-      1: 100052
-    second: Shoulder_R
-  - first:
-      1: 100054
-    second: Spine1_M
-  - first:
-      1: 100056
-    second: Toes_L
-  - first:
-      1: 100058
-    second: Toes_R
-  - first:
-      1: 100060
-    second: ToesEnd_L
-  - first:
-      1: 100062
-    second: ToesEnd_R
-  - first:
-      1: 100064
-    second: Woman_2.001
-  - first:
-      1: 100066
-    second: //RootNode
-  - first:
-      1: 100068
-    second: Wrist_L
-  - first:
-      1: 100070
-    second: Wrist_R
-  - first:
-      4: 400000
-    second: Ankle_L
-  - first:
-      4: 400002
-    second: Ankle_R
-  - first:
-      4: 400004
-    second: Chest_M
-  - first:
-      4: 400006
-    second: Elbow_L
-  - first:
-      4: 400008
-    second: Elbow_R
-  - first:
-      4: 400010
-    second: Group
-  - first:
-      4: 400012
-    second: Head_M
-  - first:
-      4: 400014
-    second: HeadEnd_M
-  - first:
-      4: 400016
-    second: Hip_L
-  - first:
-      4: 400018
-    second: Hip_R
-  - first:
-      4: 400020
-    second: Knee_L
-  - first:
-      4: 400022
-    second: Knee_R
-  - first:
-      4: 400024
-    second: left
-  - first:
-      4: 400026
-    second: MiddleFinger1_L
-  - first:
-      4: 400028
-    second: MiddleFinger1_R
-  - first:
-      4: 400030
-    second: MiddleFinger2_L
-  - first:
-      4: 400032
-    second: MiddleFinger2_R
-  - first:
-      4: 400034
-    second: MiddleFinger3_L
-  - first:
-      4: 400036
-    second: MiddleFinger3_R
-  - first:
-      4: 400038
-    second: MiddleFinger4_L
-  - first:
-      4: 400040
-    second: MiddleFinger4_R
-  - first:
-      4: 400042
-    second: Neck_M
-  - first:
-      4: 400044
-    second: Root_M
-  - first:
-      4: 400046
-    second: Scapula_L
-  - first:
-      4: 400048
-    second: Scapula_R
-  - first:
-      4: 400050
-    second: Shoulder_L
-  - first:
-      4: 400052
-    second: Shoulder_R
-  - first:
-      4: 400054
-    second: Spine1_M
-  - first:
-      4: 400056
-    second: Toes_L
-  - first:
-      4: 400058
-    second: Toes_R
-  - first:
-      4: 400060
-    second: ToesEnd_L
-  - first:
-      4: 400062
-    second: ToesEnd_R
-  - first:
-      4: 400064
-    second: Woman_2.001
-  - first:
-      4: 400066
-    second: //RootNode
-  - first:
-      4: 400068
-    second: Wrist_L
-  - first:
-      4: 400070
-    second: Wrist_R
-  - first:
-      20: 2000000
-    second: left
-  - first:
-      43: 4300000
-    second: Woman_2.001
-  - first:
-      74: 7400000
-    second: Woman_3_Idle
-  - first:
-      74: 7400002
-    second: Woman_3_Breathing
-  - first:
-      74: 7400004
-    second: Woman_3_Run
-  - first:
-      74: 7400006
-    second: Woman_3_Walk
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Woman_2.001
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Chest_M
+    100006: Elbow_L
+    100008: Elbow_R
+    100010: Group
+    100012: Head_M
+    100014: HeadEnd_M
+    100016: Hip_L
+    100018: Hip_R
+    100020: Knee_L
+    100022: Knee_R
+    100024: left
+    100026: MiddleFinger1_L
+    100028: MiddleFinger1_R
+    100030: MiddleFinger2_L
+    100032: MiddleFinger2_R
+    100034: MiddleFinger3_L
+    100036: MiddleFinger3_R
+    100038: MiddleFinger4_L
+    100040: MiddleFinger4_R
+    100042: Neck_M
+    100044: Root_M
+    100046: Scapula_L
+    100048: Scapula_R
+    100050: Shoulder_L
+    100052: Shoulder_R
+    100054: Spine1_M
+    100056: Toes_L
+    100058: Toes_R
+    100060: ToesEnd_L
+    100062: ToesEnd_R
+    100064: Woman_2.001
+    100066: //RootNode
+    100068: Wrist_L
+    100070: Wrist_R
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Chest_M
+    400006: Elbow_L
+    400008: Elbow_R
+    400010: Group
+    400012: Head_M
+    400014: HeadEnd_M
+    400016: Hip_L
+    400018: Hip_R
+    400020: Knee_L
+    400022: Knee_R
+    400024: left
+    400026: MiddleFinger1_L
+    400028: MiddleFinger1_R
+    400030: MiddleFinger2_L
+    400032: MiddleFinger2_R
+    400034: MiddleFinger3_L
+    400036: MiddleFinger3_R
+    400038: MiddleFinger4_L
+    400040: MiddleFinger4_R
+    400042: Neck_M
+    400044: Root_M
+    400046: Scapula_L
+    400048: Scapula_R
+    400050: Shoulder_L
+    400052: Shoulder_R
+    400054: Spine1_M
+    400056: Toes_L
+    400058: Toes_R
+    400060: ToesEnd_L
+    400062: ToesEnd_R
+    400064: Woman_2.001
+    400066: //RootNode
+    400068: Wrist_L
+    400070: Wrist_R
+    2000000: left
+    4300000: Woman_2.001
+    7400000: Woman_3_Idle
+    7400002: Woman_3_Breathing
+    7400004: Woman_3_Run
+    7400006: Woman_3_Walk
+    9500000: //RootNode
+    13700000: Woman_2.001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CBurgundy1
-    second: {fileID: 2100000, guid: 14bdccad0bef82a4098181a969ae33ab, type: 2}
+    second: {fileID: 2100000, guid: 3e99ab10f9e3e714ca07c232a873a287, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CDress4
-    second: {fileID: 2100000, guid: 92729ad038beba342aa579a67551b4ac, type: 2}
+    second: {fileID: 2100000, guid: 7c64092ebd6fad04b8325d27b8ea8482, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CEyes4
-    second: {fileID: 2100000, guid: 9812ea36b6d7c6a459e3dcde520fc401, type: 2}
+    second: {fileID: 2100000, guid: 4e8aa488d5a216c42909dfd4a92a62fa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHair4
-    second: {fileID: 2100000, guid: 28887909866c000439678b59a263da0f, type: 2}
+    second: {fileID: 2100000, guid: f8872bfdb6b1fab4cb174437d2124848, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CShirt4
-    second: {fileID: 2100000, guid: 41ccca84fed1a3e428089f1c4196b38f, type: 2}
+    second: {fileID: 2100000, guid: d452307d579c80440a55d1e14a159a31, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CSkin10
-    second: {fileID: 2100000, guid: 492a756e4116a964a884c6cbf70281f2, type: 2}
+    second: {fileID: 2100000, guid: e3e1ff8d68fa40c4eac6679fb467a6a4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CSkin9
-    second: {fileID: 2100000, guid: 8082fd9d2082a8d4c9bd6c4678104563, type: 2}
+    second: {fileID: 2100000, guid: 341531b0ea3591449985ccfa446e150b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CYellow4
-    second: {fileID: 2100000, guid: 3e30809b5d7e7094ea63e4da679bf3f6, type: 2}
+    second: {fileID: 2100000, guid: 97ee3c0a6da8a8d48a9a6b1d12b36322, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -314,7 +154,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Woman_3_Idle
       takeName: Woman_3_Idle
-      internalID: 7400000
       firstFrame: 0
       lastFrame: 88
       wrapMode: 0
@@ -343,7 +182,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Woman_3_Breathing
       takeName: Woman_3_Breathing
-      internalID: 7400002
       firstFrame: 90
       lastFrame: 134
       wrapMode: 0
@@ -372,7 +210,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Woman_3_Run
       takeName: Woman_3_Run
-      internalID: 7400004
       firstFrame: 135
       lastFrame: 153
       wrapMode: 0
@@ -401,7 +238,6 @@ ModelImporter:
     - serializedVersion: 16
       name: Woman_3_Walk
       takeName: Woman_3_Walk
-      internalID: 7400006
       firstFrame: 154
       lastFrame: 194
       wrapMode: 0
@@ -441,19 +277,18 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -462,11 +297,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -476,7 +310,6 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

@@ -1,54 +1,46 @@
 fileFormatVersion: 2
-guid: 69a79d35944c1354797b5827de807d20
+guid: 59565ba87d08b034c967b98d314b799b
+timeCreated: 1511803633
+licenseType: Store
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: Silo_2.001
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Silo_2.001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CDark
-    second: {fileID: 2100000, guid: 79e05dc657f995743b4660b2e5bb0996, type: 2}
+    second: {fileID: 2100000, guid: 8fc2a13128c12444aafb27eb33ac309b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CMetal2
-    second: {fileID: 2100000, guid: 721c962419f25744ba28beb0459e16b3, type: 2}
+    second: {fileID: 2100000, guid: d618085b9ee101c4fbf64430b8f28171, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWood_10
-    second: {fileID: 2100000, guid: 312146e4b309e1a4da8d6c5771abd37f, type: 2}
+    second: {fileID: 2100000, guid: cc0386d573427cb47a51ddc5342ff106, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWood_4
-    second: {fileID: 2100000, guid: d2e02affbffe7a24b8b790067c7a6796, type: 2}
+    second: {fileID: 2100000, guid: aafc19010ddf6084fabed4a3900c1bc1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Silo_Walls1.001
-    second: {fileID: 2100000, guid: dc772038e5550a243b075e7428945c18, type: 2}
+    second: {fileID: 2100000, guid: a8cb38c3cfeb00244831ef65abf3cd5c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Silo_Walls1_Dark.001
-    second: {fileID: 2100000, guid: 57d5743ec720cee4883f579981083b56, type: 2}
+    second: {fileID: 2100000, guid: 632a940fb730e34449b04424e5418ad3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -67,7 +59,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -82,7 +73,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -90,14 +80,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -108,14 +93,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -125,8 +106,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

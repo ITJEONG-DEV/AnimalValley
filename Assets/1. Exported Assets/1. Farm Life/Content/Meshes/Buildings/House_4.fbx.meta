@@ -1,67 +1,57 @@
 fileFormatVersion: 2
-guid: eb61f11889e06be42be394389e69137f
+guid: 8dd54c897d2f5a945a27df4604580503
+timeCreated: 1505226933
+licenseType: Store
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: House_4
-  - first:
-      43: 4300002
-    second: House_4.001
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: House_4
+    4300002: House_4.001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHouse_7_Foundation
-    second: {fileID: 2100000, guid: b766e82a4c117ea4abe8e6d7e74254cc, type: 2}
+    second: {fileID: 2100000, guid: c84da4fa54998cf42bb8542e6837de30, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CHouse_7_Walls
-    second: {fileID: 2100000, guid: 3d9ec4b543a83304693b32c685bfaf2b, type: 2}
+    second: {fileID: 2100000, guid: 1c0c48e80a2f500428479035e9588cb7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House_4_Roof_Darker
-    second: {fileID: 2100000, guid: 8120bb4495f993844b2fc702d8ba9a88, type: 2}
+    second: {fileID: 2100000, guid: f5cb17dea33505549bd6349baf6379ab, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House_7_Chimney_Bright.001
-    second: {fileID: 2100000, guid: 4a003207af29785438d971b57ab75b95, type: 2}
+    second: {fileID: 2100000, guid: 6a33cee654921e34f9dd5f0506cb7157, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House_7_Roof2
-    second: {fileID: 2100000, guid: 00064e70bf090a64d90bc4ac57c1bfa1, type: 2}
+    second: {fileID: 2100000, guid: 42f6a73fbf76eba488180c3f9d9082bf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House_7_White
-    second: {fileID: 2100000, guid: 3f954635f99a3b1439ce0b3a754c3a55, type: 2}
+    second: {fileID: 2100000, guid: 204c529f94bb60946bdb4bdd29576e6e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House_7_Whte
-    second: {fileID: 2100000, guid: 8b2ec85c5d1e706498b4927c32e72908, type: 2}
+    second: {fileID: 2100000, guid: 738b1d4324aa90941953e9bef3730479, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: House_7_Windows.001
-    second: {fileID: 2100000, guid: f203db512cbaf9c4d800e2467a3346f5, type: 2}
+    second: {fileID: 2100000, guid: c90f6818310fd0a4c982d13c686852b0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -80,7 +70,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -95,7 +84,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 3
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
@@ -103,14 +91,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -121,14 +104,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -138,8 +117,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

@@ -1,82 +1,72 @@
 fileFormatVersion: 2
-guid: 1bcc663c78f55bf4fb5589a6fd15a341
+guid: 635da401be511a84e8c3a6367e245339
+timeCreated: 1505226930
+licenseType: Store
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: Warehouse
-  - first:
-      43: 4300002
-    second: Warehouse.001
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Warehouse
+    4300002: Warehouse.001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CBurgundy
-    second: {fileID: 2100000, guid: 6bbaac02f53a1b442b8e58f3ccac141e, type: 2}
+    second: {fileID: 2100000, guid: 9256bfdf8291e394bbb0dd2a0eaee285, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CBurgundy_Bright
-    second: {fileID: 2100000, guid: 6d734750b2e369649927a1dc0b356a02, type: 2}
+    second: {fileID: 2100000, guid: b538d3811587ef64c8ca9ade7db3292a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CStone
-    second: {fileID: 2100000, guid: 2120869fd971f6348be8556c9e7a5b20, type: 2}
+    second: {fileID: 2100000, guid: 33d391c69e465b64bbce188c4b1d7c4c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CStone_Bright
-    second: {fileID: 2100000, guid: ba27c78260fd55d4889e7a88af4f43bc, type: 2}
+    second: {fileID: 2100000, guid: aa67362931beedc44b0017393b98e34f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CStone_Dark
-    second: {fileID: 2100000, guid: a5716f9e54f8e6346bec15b3e92c536d, type: 2}
+    second: {fileID: 2100000, guid: cb6b5b408a95dd0409f4bb52c6d88ba3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWhite
-    second: {fileID: 2100000, guid: ca09949506e290e4dace04c566ccb7a0, type: 2}
+    second: {fileID: 2100000, guid: b7efb0c3f4ddd0340bfe69c730bb2e61, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWhite_2
-    second: {fileID: 2100000, guid: 137061b87870502459983d9067c4c662, type: 2}
+    second: {fileID: 2100000, guid: 51053d581d1780e469ed2355e3027a7f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWhite_Bright
-    second: {fileID: 2100000, guid: 2db3eee5006e14b40bb438634cc92828, type: 2}
+    second: {fileID: 2100000, guid: 45857a7e77e5eae44ba3bad1ae5b86ba, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWood1
-    second: {fileID: 2100000, guid: 29a9dcffb1660e341978a6c50d99a506, type: 2}
+    second: {fileID: 2100000, guid: d24c4979d464e284899a267262a3245e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWood2
-    second: {fileID: 2100000, guid: 150c6633feebdeb4d9b02828848b681c, type: 2}
+    second: {fileID: 2100000, guid: 6b502ffb1362cdf40be3ecdf2f9f6e17, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CWood5
-    second: {fileID: 2100000, guid: 1aacab2a12bc9ca49aca024b8b159915, type: 2}
+    second: {fileID: 2100000, guid: 4e4b3b1b5afd8be4eac27d87cf6d9df6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -95,7 +85,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -110,7 +99,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 3
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
@@ -118,14 +106,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -136,14 +119,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -153,8 +132,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

@@ -1,327 +1,110 @@
 fileFormatVersion: 2
-guid: 6b01c43648f01e544975c7058555125d
+guid: 6a5111fbbd0c8e4438b6d24d7e2d0e35
+timeCreated: 1507555819
+licenseType: Store
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: backAnkle_L
-  - first:
-      1: 100002
-    second: backAnkle_R
-  - first:
-      1: 100004
-    second: backHip_L
-  - first:
-      1: 100006
-    second: backHip_R
-  - first:
-      1: 100008
-    second: backKnee_L
-  - first:
-      1: 100010
-    second: backKnee_R
-  - first:
-      1: 100012
-    second: backRump_L
-  - first:
-      1: 100014
-    second: backRump_R
-  - first:
-      1: 100016
-    second: backToes_L
-  - first:
-      1: 100018
-    second: backToes_R
-  - first:
-      1: 100020
-    second: backToesEnd_L
-  - first:
-      1: 100022
-    second: backToesEnd_R
-  - first:
-      1: 100024
-    second: Chest_M
-  - first:
-      1: 100026
-    second: Ear_L
-  - first:
-      1: 100028
-    second: Ear_R
-  - first:
-      1: 100030
-    second: EarEnd_L
-  - first:
-      1: 100032
-    second: EarEnd_R
-  - first:
-      1: 100034
-    second: frontAnkle_L
-  - first:
-      1: 100036
-    second: frontAnkle_R
-  - first:
-      1: 100038
-    second: frontHip_L
-  - first:
-      1: 100040
-    second: frontHip_R
-  - first:
-      1: 100042
-    second: frontKnee_L
-  - first:
-      1: 100044
-    second: frontKnee_R
-  - first:
-      1: 100046
-    second: frontRump_L
-  - first:
-      1: 100048
-    second: frontRump_R
-  - first:
-      1: 100050
-    second: frontToes_L
-  - first:
-      1: 100052
-    second: frontToes_R
-  - first:
-      1: 100054
-    second: frontToesEnd_L
-  - first:
-      1: 100056
-    second: frontToesEnd_R
-  - first:
-      1: 100058
-    second: Group
-  - first:
-      1: 100060
-    second: Head_M
-  - first:
-      1: 100062
-    second: HeadEnd_M
-  - first:
-      1: 100064
-    second: Horse
-  - first:
-      1: 100066
-    second: //RootNode
-  - first:
-      1: 100068
-    second: Neck_M
-  - first:
-      1: 100070
-    second: Root_M
-  - first:
-      1: 100072
-    second: Spine1_M
-  - first:
-      1: 100074
-    second: Tail0_M
-  - first:
-      1: 100076
-    second: Tail1_M
-  - first:
-      1: 100078
-    second: Tail2_M
-  - first:
-      1: 100080
-    second: Tail3_M
-  - first:
-      1: 100082
-    second: Tail4_M
-  - first:
-      1: 100084
-    second: Tail5_M
-  - first:
-      1: 100086
-    second: Tail6_M
-  - first:
-      4: 400000
-    second: backAnkle_L
-  - first:
-      4: 400002
-    second: backAnkle_R
-  - first:
-      4: 400004
-    second: backHip_L
-  - first:
-      4: 400006
-    second: backHip_R
-  - first:
-      4: 400008
-    second: backKnee_L
-  - first:
-      4: 400010
-    second: backKnee_R
-  - first:
-      4: 400012
-    second: backRump_L
-  - first:
-      4: 400014
-    second: backRump_R
-  - first:
-      4: 400016
-    second: backToes_L
-  - first:
-      4: 400018
-    second: backToes_R
-  - first:
-      4: 400020
-    second: backToesEnd_L
-  - first:
-      4: 400022
-    second: backToesEnd_R
-  - first:
-      4: 400024
-    second: Chest_M
-  - first:
-      4: 400026
-    second: Ear_L
-  - first:
-      4: 400028
-    second: Ear_R
-  - first:
-      4: 400030
-    second: EarEnd_L
-  - first:
-      4: 400032
-    second: EarEnd_R
-  - first:
-      4: 400034
-    second: frontAnkle_L
-  - first:
-      4: 400036
-    second: frontAnkle_R
-  - first:
-      4: 400038
-    second: frontHip_L
-  - first:
-      4: 400040
-    second: frontHip_R
-  - first:
-      4: 400042
-    second: frontKnee_L
-  - first:
-      4: 400044
-    second: frontKnee_R
-  - first:
-      4: 400046
-    second: frontRump_L
-  - first:
-      4: 400048
-    second: frontRump_R
-  - first:
-      4: 400050
-    second: frontToes_L
-  - first:
-      4: 400052
-    second: frontToes_R
-  - first:
-      4: 400054
-    second: frontToesEnd_L
-  - first:
-      4: 400056
-    second: frontToesEnd_R
-  - first:
-      4: 400058
-    second: Group
-  - first:
-      4: 400060
-    second: Head_M
-  - first:
-      4: 400062
-    second: HeadEnd_M
-  - first:
-      4: 400064
-    second: Horse
-  - first:
-      4: 400066
-    second: //RootNode
-  - first:
-      4: 400068
-    second: Neck_M
-  - first:
-      4: 400070
-    second: Root_M
-  - first:
-      4: 400072
-    second: Spine1_M
-  - first:
-      4: 400074
-    second: Tail0_M
-  - first:
-      4: 400076
-    second: Tail1_M
-  - first:
-      4: 400078
-    second: Tail2_M
-  - first:
-      4: 400080
-    second: Tail3_M
-  - first:
-      4: 400082
-    second: Tail4_M
-  - first:
-      4: 400084
-    second: Tail5_M
-  - first:
-      4: 400086
-    second: Tail6_M
-  - first:
-      43: 4300000
-    second: Horse
-  - first:
-      74: 7400000
-    second: HorseWalk
-  - first:
-      74: 7400002
-    second: HorseRun
-  - first:
-      74: 7400004
-    second: HorseIdle
-  - first:
-      74: 7400006
-    second: HorseBreathing
-  - first:
-      74: 7400008
-    second: HorseEat
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Horse
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Horse
-    second: {fileID: 2100000, guid: 8b56528180cd5d143b578d69bb22d093, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Horse_Dark
-    second: {fileID: 2100000, guid: 3e2fb6ec9b4c7ff498a51fd726594d5d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Horse_Ears
-    second: {fileID: 2100000, guid: fb5ffb6c0372a974381b36e4348ca457, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Horse_Hair
-    second: {fileID: 2100000, guid: a46f1807138d267489d64e138b6d62a8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Horse_White
-    second: {fileID: 2100000, guid: 43fc105d25be9b940b903e7158a98b68, type: 2}
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: backAnkle_L
+    100002: backAnkle_R
+    100004: backHip_L
+    100006: backHip_R
+    100008: backKnee_L
+    100010: backKnee_R
+    100012: backRump_L
+    100014: backRump_R
+    100016: backToes_L
+    100018: backToes_R
+    100020: backToesEnd_L
+    100022: backToesEnd_R
+    100024: Chest_M
+    100026: Ear_L
+    100028: Ear_R
+    100030: EarEnd_L
+    100032: EarEnd_R
+    100034: frontAnkle_L
+    100036: frontAnkle_R
+    100038: frontHip_L
+    100040: frontHip_R
+    100042: frontKnee_L
+    100044: frontKnee_R
+    100046: frontRump_L
+    100048: frontRump_R
+    100050: frontToes_L
+    100052: frontToes_R
+    100054: frontToesEnd_L
+    100056: frontToesEnd_R
+    100058: Group
+    100060: Head_M
+    100062: HeadEnd_M
+    100064: Horse
+    100066: //RootNode
+    100068: Neck_M
+    100070: Root_M
+    100072: Spine1_M
+    100074: Tail0_M
+    100076: Tail1_M
+    100078: Tail2_M
+    100080: Tail3_M
+    100082: Tail4_M
+    100084: Tail5_M
+    100086: Tail6_M
+    400000: backAnkle_L
+    400002: backAnkle_R
+    400004: backHip_L
+    400006: backHip_R
+    400008: backKnee_L
+    400010: backKnee_R
+    400012: backRump_L
+    400014: backRump_R
+    400016: backToes_L
+    400018: backToes_R
+    400020: backToesEnd_L
+    400022: backToesEnd_R
+    400024: Chest_M
+    400026: Ear_L
+    400028: Ear_R
+    400030: EarEnd_L
+    400032: EarEnd_R
+    400034: frontAnkle_L
+    400036: frontAnkle_R
+    400038: frontHip_L
+    400040: frontHip_R
+    400042: frontKnee_L
+    400044: frontKnee_R
+    400046: frontRump_L
+    400048: frontRump_R
+    400050: frontToes_L
+    400052: frontToes_R
+    400054: frontToesEnd_L
+    400056: frontToesEnd_R
+    400058: Group
+    400060: Head_M
+    400062: HeadEnd_M
+    400064: Horse
+    400066: //RootNode
+    400068: Neck_M
+    400070: Root_M
+    400072: Spine1_M
+    400074: Tail0_M
+    400076: Tail1_M
+    400078: Tail2_M
+    400080: Tail3_M
+    400082: Tail4_M
+    400084: Tail5_M
+    400086: Tail6_M
+    4300000: Horse
+    7400000: HorseWalk
+    7400002: HorseRun
+    7400004: HorseIdle
+    7400006: HorseBreathing
+    7400008: HorseEat
+    9500000: //RootNode
+    13700000: Horse
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -334,8 +117,6 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -343,159 +124,13 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: HorseWalk
-      takeName: HorseWalk
-      internalID: 7400000
-      firstFrame: 0
-      lastFrame: 30
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: HorseRun
-      takeName: HorseRun
-      internalID: 7400002
-      firstFrame: 40
-      lastFrame: 55
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: HorseIdle
-      takeName: HorseIdle
-      internalID: 7400004
-      firstFrame: 60
-      lastFrame: 214
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: HorseBreathing
-      takeName: HorseBreathing
-      internalID: 7400006
-      firstFrame: 220
-      lastFrame: 279
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: HorseEat
-      takeName: HorseEat
-      internalID: 7400008
-      firstFrame: 289
-      lastFrame: 445
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -503,14 +138,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -521,14 +151,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -538,8 +164,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

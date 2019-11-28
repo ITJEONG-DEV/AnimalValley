@@ -1,209 +1,74 @@
 fileFormatVersion: 2
-guid: bd0b117069676324e9db1ad139715999
+guid: e30bea85e129dfe46972a2ff1aa72771
+timeCreated: 1507555828
+licenseType: Store
 ModelImporter:
-  serializedVersion: 25
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Ankle_L
-  - first:
-      1: 100002
-    second: Ankle_R
-  - first:
-      1: 100004
-    second: Chest_M
-  - first:
-      1: 100006
-    second: Elbow_L
-  - first:
-      1: 100008
-    second: Elbow_R
-  - first:
-      1: 100010
-    second: Group
-  - first:
-      1: 100012
-    second: Head_M
-  - first:
-      1: 100014
-    second: HeadEnd_M
-  - first:
-      1: 100016
-    second: Hip_L
-  - first:
-      1: 100018
-    second: Hip_R
-  - first:
-      1: 100020
-    second: Knee_L
-  - first:
-      1: 100022
-    second: Knee_R
-  - first:
-      1: 100024
-    second: Neck_M
-  - first:
-      1: 100026
-    second: Root_M
-  - first:
-      1: 100028
-    second: Scapula_L
-  - first:
-      1: 100030
-    second: Scapula_R
-  - first:
-      1: 100032
-    second: Shoulder_L
-  - first:
-      1: 100034
-    second: Shoulder_R
-  - first:
-      1: 100036
-    second: Spine1_M
-  - first:
-      1: 100038
-    second: Stork
-  - first:
-      1: 100040
-    second: //RootNode
-  - first:
-      1: 100042
-    second: Tail1_M
-  - first:
-      1: 100044
-    second: Toes_L
-  - first:
-      1: 100046
-    second: Toes_R
-  - first:
-      1: 100048
-    second: ToesEnd_L
-  - first:
-      1: 100050
-    second: ToesEnd_R
-  - first:
-      4: 400000
-    second: Ankle_L
-  - first:
-      4: 400002
-    second: Ankle_R
-  - first:
-      4: 400004
-    second: Chest_M
-  - first:
-      4: 400006
-    second: Elbow_L
-  - first:
-      4: 400008
-    second: Elbow_R
-  - first:
-      4: 400010
-    second: Group
-  - first:
-      4: 400012
-    second: Head_M
-  - first:
-      4: 400014
-    second: HeadEnd_M
-  - first:
-      4: 400016
-    second: Hip_L
-  - first:
-      4: 400018
-    second: Hip_R
-  - first:
-      4: 400020
-    second: Knee_L
-  - first:
-      4: 400022
-    second: Knee_R
-  - first:
-      4: 400024
-    second: Neck_M
-  - first:
-      4: 400026
-    second: Root_M
-  - first:
-      4: 400028
-    second: Scapula_L
-  - first:
-      4: 400030
-    second: Scapula_R
-  - first:
-      4: 400032
-    second: Shoulder_L
-  - first:
-      4: 400034
-    second: Shoulder_R
-  - first:
-      4: 400036
-    second: Spine1_M
-  - first:
-      4: 400038
-    second: Stork
-  - first:
-      4: 400040
-    second: //RootNode
-  - first:
-      4: 400042
-    second: Tail1_M
-  - first:
-      4: 400044
-    second: Toes_L
-  - first:
-      4: 400046
-    second: Toes_R
-  - first:
-      4: 400048
-    second: ToesEnd_L
-  - first:
-      4: 400050
-    second: ToesEnd_R
-  - first:
-      43: 4300000
-    second: Stork
-  - first:
-      74: 7400000
-    second: StorkWalk
-  - first:
-      74: 7400002
-    second: StorkRun
-  - first:
-      74: 7400004
-    second: StorkIdle
-  - first:
-      74: 7400006
-    second: StorkBreathing
-  - first:
-      74: 7400008
-    second: StorkEat
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: Stork
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stork
-    second: {fileID: 2100000, guid: 611d735ebd31819498dc3aea559ed3af, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stork_Black
-    second: {fileID: 2100000, guid: 3453ffc688fe8044fb45c2749fb81e96, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Stork_Legs
-    second: {fileID: 2100000, guid: cfab34a482b92d74494caeba1732d523, type: 2}
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Ankle_L
+    100002: Ankle_R
+    100004: Chest_M
+    100006: Elbow_L
+    100008: Elbow_R
+    100010: Group
+    100012: Head_M
+    100014: HeadEnd_M
+    100016: Hip_L
+    100018: Hip_R
+    100020: Knee_L
+    100022: Knee_R
+    100024: Neck_M
+    100026: Root_M
+    100028: Scapula_L
+    100030: Scapula_R
+    100032: Shoulder_L
+    100034: Shoulder_R
+    100036: Spine1_M
+    100038: Stork
+    100040: //RootNode
+    100042: Tail1_M
+    100044: Toes_L
+    100046: Toes_R
+    100048: ToesEnd_L
+    100050: ToesEnd_R
+    400000: Ankle_L
+    400002: Ankle_R
+    400004: Chest_M
+    400006: Elbow_L
+    400008: Elbow_R
+    400010: Group
+    400012: Head_M
+    400014: HeadEnd_M
+    400016: Hip_L
+    400018: Hip_R
+    400020: Knee_L
+    400022: Knee_R
+    400024: Neck_M
+    400026: Root_M
+    400028: Scapula_L
+    400030: Scapula_R
+    400032: Shoulder_L
+    400034: Shoulder_R
+    400036: Spine1_M
+    400038: Stork
+    400040: //RootNode
+    400042: Tail1_M
+    400044: Toes_L
+    400046: Toes_R
+    400048: ToesEnd_L
+    400050: ToesEnd_R
+    4300000: Stork
+    7400000: StorkWalk
+    7400002: StorkRun
+    7400004: StorkIdle
+    7400006: StorkBreathing
+    7400008: StorkEat
+    9500000: //RootNode
+    13700000: Stork
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -216,8 +81,6 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -225,159 +88,13 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: StorkWalk
-      takeName: StorkWalk
-      internalID: 7400000
-      firstFrame: 0
-      lastFrame: 29
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: StorkRun
-      takeName: StorkRun
-      internalID: 7400002
-      firstFrame: 39
-      lastFrame: 58
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: StorkIdle
-      takeName: StorkIdle
-      internalID: 7400004
-      firstFrame: 69
-      lastFrame: 223
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: StorkBreathing
-      takeName: StorkBreathing
-      internalID: 7400006
-      firstFrame: 229
-      lastFrame: 288
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: StorkEat
-      takeName: StorkEat
-      internalID: 7400008
-      firstFrame: 299
-      lastFrame: 423
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -385,14 +102,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -403,14 +115,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -420,8 +128,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
