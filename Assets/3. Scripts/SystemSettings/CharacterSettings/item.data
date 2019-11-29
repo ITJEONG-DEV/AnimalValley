@@ -7,9 +7,9 @@ TTHG,금 괭이
 TTPM,금속 곡괭이
 TTPS,은 곡괭이
 TTPG,금 곡괭이
-TTHM,금속 삽
-TTHS,은 삽
-TTHG,금 삽
+TTOM,금속 삽
+TTOS,은 삽
+TTOG,금 삽
 TTWM,금속 물뿌리개
 TTWS,은 물뿌리개
 TTWG,금 물뿌리개
@@ -19,15 +19,15 @@ TTAG,금 도끼
 TTFM,금속 낚싯대
 TTFS,은 낚싯대
 TTFG,금 낚싯대
-THWM,금속 칼
-THWS,은 칼
-THWG,금 칼
+THWM,부랑자의 칼
+THWS,용사의 칼
+THWG,마왕의 칼
 RCG0,밀
 RCG1,쌀
 RCV0,호박
 RCV1,당근
 RCV2,양배추
-RCV3,고구마
+RCV3,양파
 RCV4,파프리카
 RCV8,토마토
 RCCR,갈대

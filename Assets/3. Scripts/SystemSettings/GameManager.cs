@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private const string path = "Assets/Scripts/SystemSettings/CharacterSettings/data.data";
+    private const string path = "Assets/3. Scripts/SystemSettings/CharacterSettings/data.data";
     private List<Item> itemList = new List<Item>();
     private float time;
 

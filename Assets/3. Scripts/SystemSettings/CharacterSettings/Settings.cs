@@ -23,7 +23,7 @@ public static class Settings
 
         try
         {
-            string path = "Assets/Scripts/SystemSettings/CharacterSettings/item.data";
+            string path = "Assets/3. Scripts/SystemSettings/CharacterSettings/item.data";
             FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
             StreamReader streamReader = new StreamReader(fileStream);
 
