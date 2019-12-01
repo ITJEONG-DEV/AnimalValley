@@ -5,6 +5,7 @@ using System.Collections;
 // seconds from the material array defined in the inspector.
 public class ExampleSwapMaterials : MonoBehaviour
 {
+    public static int index_T;
     public Material[] materials;
     public float changeInterval = 0.33F;
     public Renderer rend;
@@ -28,5 +29,10 @@ public class ExampleSwapMaterials : MonoBehaviour
 
         // assign it to the renderer
         rend.sharedMaterial = materials[index];
+    }
+
+    public void onclickEvent()
+    {
+
     }
 }
