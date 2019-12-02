@@ -5,11 +5,14 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public Vector3 pos_= new Vector3(0,0,0);       // 소환할 위치 지정용 뵨수
+
+
     //public GameObject[] zoo;
     //public GameObject[] headAcc;
     //public GameObject[] chestAcc;
 
-
+    public string toolName;   //도구나 무기이름
+    GameObject temp;
     public float speed = 3f;
     public float runWeight = 2f;
 
@@ -23,6 +26,7 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        temp = GetComponent<GameObject>();  //필요하긴한가?
     }
 
     void FixedUpdate()
@@ -112,7 +116,7 @@ public class Character : MonoBehaviour
         {
             realNum = "0" + num.ToString();
         }
-        GameObject temp = GameObject.Find(info.getAnimal() + realNum);
+        temp = (GameObject)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/1. Exported Assets/4. Characters/Yippy Kawaii/Prefab/"+ info.getAnimal()+"/"+ realNum.ToString(),typeof(GameObject));
         Instantiate(temp, pos_, Quaternion.identity);                   //스킨이랑 같이 불렀다.
 
         temp.gameObject.transform.Find("Mesh").gameObject.AddComponent<ExampleSwapMaterials>();
@@ -164,5 +168,40 @@ public class Character : MonoBehaviour
 
 
     }
+
+
+    public void SetHandItem(string item)
+    {
+        Vector3 pos= temp.transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Scapula_R").transform.Find("Shoulder_R").transform.Find("Elbow_R").transform.Find("Wrist_R").transform.Find("WeaponR_locator").transform.position;
+        GameObject tool_Object;
+         // temp.transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Scapula_R").transform.Find("Shoulder_R").transform.Find("Elbow_R").transform.Find("Wrist_R").transform.Find("WeaponR_locator")
+         //boolean?
+        
+        if (toolName==null)
+        {
+            tool_Object = (GameObject)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Custom Assets/Item/Prefab/"+item, typeof(GameObject));
+            Instantiate(tool_Object,pos, Quaternion.identity);
+            tool_Object.SetActive(true);
+            toolName = item;
+            return;
+         }
+         else if(toolName!=item && item!=null)
+         {
+            temp.transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Scapula_R").transform.Find("Shoulder_R").transform.Find("Elbow_R").transform.Find("Wrist_R").transform.Find("WeaponR_locator").transform.Find(toolName).gameObject.SetActive(false);
+            tool_Object = (GameObject)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Custom Assets/Item/Prefab/" + item, typeof(GameObject));
+            Instantiate(tool_Object,pos, Quaternion.identity);
+            toolName = item;
+            tool_Object.SetActive(true);
+            return;
+         }
+         else if(toolName != item && item == null)
+         {
+            temp.transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Scapula_R").transform.Find("Shoulder_R").transform.Find("Elbow_R").transform.Find("Wrist_R").transform.Find("WeaponR_locator").transform.Find(toolName).gameObject.SetActive(false);
+            toolName = item;
+            return;
+        }
+         
+    }
+
 
 }
