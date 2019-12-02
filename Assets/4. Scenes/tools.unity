@@ -365,11 +365,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74646312}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0.520646, y: 2.8750114, z: -0.22711858}
+  m_LocalPosition: {x: 0.47064596, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1310130591}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &96682592
 GameObject:
@@ -439,34 +439,29 @@ Transform:
   - {fileID: 671717946}
   - {fileID: 1028567949}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &605433736
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1310130591}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5358570976763549846, guid: e6a737ab7ac587e479a278165e87bc55,
-        type: 3}
-      propertyPath: m_Name
-      value: Police
-      objectReference: {fileID: 0}
     - target: {fileID: 5356873870493433928, guid: e6a737ab7ac587e479a278165e87bc55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.838
+      value: -2.888
       objectReference: {fileID: 0}
     - target: {fileID: 5356873870493433928, guid: e6a737ab7ac587e479a278165e87bc55,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.12498864
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5356873870493433928, guid: e6a737ab7ac587e479a278165e87bc55,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22711858
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5356873870493433928, guid: e6a737ab7ac587e479a278165e87bc55,
         type: 3}
@@ -491,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 5356873870493433928, guid: e6a737ab7ac587e479a278165e87bc55,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5356873870493433928, guid: e6a737ab7ac587e479a278165e87bc55,
         type: 3}
@@ -508,14 +503,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5358570976763549846, guid: e6a737ab7ac587e479a278165e87bc55,
+        type: 3}
+      propertyPath: m_Name
+      value: Police
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6a737ab7ac587e479a278165e87bc55, type: 3}
---- !u!4 &605433737 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5356873870493433928, guid: e6a737ab7ac587e479a278165e87bc55,
-    type: 3}
-  m_PrefabInstance: {fileID: 605433736}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &632184329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,7 +746,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1096588085}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1310130590
+--- !u!1 &1100948588
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -760,31 +754,81 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1310130591}
+  - component: {fileID: 1100948591}
+  - component: {fileID: 1100948590}
+  - component: {fileID: 1100948589}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1310130591
+--- !u!81 &1100948589
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100948588}
+  m_Enabled: 1
+--- !u!20 &1100948590
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100948588}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1100948591
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310130590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0.12498864, z: 0.22711858}
+  m_GameObject: {fileID: 1100948588}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -1.83, y: 0.55, z: 4.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 74646314}
-  - {fileID: 605433737}
-  - {fileID: 1835913355}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1372504649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -961,11 +1005,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835913353}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.520646, y: -0.12498864, z: -0.22711858}
+  m_LocalPosition: {x: 0.47064596, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1310130591}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1837408465 stripped
 Transform:
