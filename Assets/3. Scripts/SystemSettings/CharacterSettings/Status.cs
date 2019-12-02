@@ -25,11 +25,14 @@ public static class Status
     {
         get
         {
-            return hp;
+            return current_hp;
         }
         set
         {
-            hp = value;
+            current_hp = value;
+
+            if (value > hp)
+                current_hp = hp;
         }
     }
 
@@ -49,6 +52,9 @@ public static class Status
         set
         {
             current_energe = value;
+
+            if (value > energe)
+                current_energe = energe;
         }
     }
 

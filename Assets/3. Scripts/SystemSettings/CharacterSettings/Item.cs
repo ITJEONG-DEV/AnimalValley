@@ -43,7 +43,7 @@ public class Item
         }
         set
         {
-            number += value;
+            number = value;
         }
     }
     public string ItemCode
@@ -51,6 +51,38 @@ public class Item
         get
         {
             return itemCode;
+        }
+    }
+
+    public string Name
+    {
+        get
+        {
+            return name;
+        }
+    }
+
+    public int Cost
+    {
+        get
+        {
+            return cost;
+        }
+    }
+
+    public int Hp
+    {
+        get
+        {
+            return hp;
+        }
+    }
+
+    public int Energe
+    {
+        get
+        {
+            return energe;
         }
     }
 }

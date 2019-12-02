@@ -70,7 +70,6 @@ public static class Settings
 
         return name;
     }
-
     public static ItemInfo GetItemInfo(string itemCode)
     {
         if(!hasItemNamePairData)
