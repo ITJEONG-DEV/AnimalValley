@@ -7,7 +7,7 @@ using UnityEngine;
 public static class Settings
 {
     private static bool hasItemNamePairData = false;
-    static List<KeyValuePair<string, string>> itemNamePair;
+    static List<ItemInfo> itemInfoList;
 
     public static bool HasItemNamePairData
     {
@@ -19,11 +19,11 @@ public static class Settings
 
     public static void RoadItemName()
     {
-        itemNamePair = new List<KeyValuePair<string, string>>();
+        itemInfoList = new List<ItemInfo>();
 
         try
         {
-            string path = "Assets/Scripts/SystemSettings/CharacterSettings/item.data";
+            string path = "Assets/3. Scripts/SystemSettings/CharacterSettings/item.data";
             FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
             StreamReader streamReader = new StreamReader(fileStream);
 
@@ -32,7 +32,15 @@ public static class Settings
             foreach (string line in lines)
             {
                 string[] data = line.Split(',');
-                itemNamePair.Add(new KeyValuePair<string, string>(data[0], data[1]));
+
+                string itemCode = data[0];
+                string name = data[1];
+                int sell = int.Parse(data[2]);
+                int buy = int.Parse(data[3]);
+                int hp = int.Parse(data[4]);
+                int energe = int.Parse(data[5]);
+
+                itemInfoList.Add(new ItemInfo(itemCode, name, sell, buy, hp, energe));
             }
 
         }
@@ -55,13 +63,26 @@ public static class Settings
             return null;
         }
 
-        if (itemNamePair.Count > 1)
-            foreach (KeyValuePair<string, string> itemNameValue in itemNamePair)
-            {
-                if (itemNameValue.Key.Equals(itemCode))
-                    return itemNameValue.Value;
-            }
+        if (itemInfoList.Count > 1)
+            foreach (ItemInfo itemValue in itemInfoList)
+                if (itemValue.ItemCode.Equals(itemCode))
+                    return itemValue.Name;
 
         return name;
+    }
+    public static ItemInfo GetItemInfo(string itemCode)
+    {
+        if(!hasItemNamePairData)
+        {
+            Debug.Log("아이템 정보를 불러오지 않았음");
+            return null;
+        }
+
+        if(itemInfoList.Count > 1)
+            foreach(ItemInfo itemValue in itemInfoList)
+                if (itemValue.ItemCode.Equals(itemCode))
+                    return itemValue;
+
+        return null;
     }
 }

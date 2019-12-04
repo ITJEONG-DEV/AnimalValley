@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private const string path = "Assets/Scripts/SystemSettings/CharacterSettings/data.data";
+    private const string path = "Assets/3. Scripts/SystemSettings/CharacterSettings/data.data";
     private List<Item> itemList = new List<Item>();
     private float time;
 
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
 
         Save();
         */
+
     }
 
     void Update()
@@ -184,6 +185,7 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    // 초기 시작 시 설정
     void InitialSettings()
     {
         // 아이템 정보 불러오기(
@@ -216,6 +218,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(valleyName);
     }
 
+    // 처음 시작 시간을 설정하는 함수
     void TimeSettings(int day = 1, int hour = 6, int minute = 0)
     {
         time = 0.0f;
@@ -226,6 +229,7 @@ public class GameManager : MonoBehaviour
         GameTime.ToString();
     }
 
+    // item 정보를 읽어오는 함수
     void ItemSettings()
     {
         Settings.RoadItemName();
@@ -246,6 +250,58 @@ public class GameManager : MonoBehaviour
         }
 
         itemList.Add(new Item(itemCode, count));
+    }
+    public void UseItem(string itemCode)
+    {
+        foreach(Item item in itemList)
+        {
+            if(item.ItemCode.Equals(itemCode))
+            {
+                item.Count -= 1;
+
+                if (item.Hp != -1)
+                    Status.CUR_HP += item.Hp;
+
+                if(item.Energe != -1)
+                    Status.CUR_ENERGE += item.Energe;
+
+                // item effect
+
+                if (item.Count == 0)
+                    itemList.Remove(item);
+            }
+        }
+    }
+    public void SellItem(string itemCode)
+    {
+        foreach(Item item in itemList)
+        {
+            if(item.ItemCode.Equals(itemCode))
+            {
+                item.Count -= 1;
+
+                Gold.GOLD += item.Cost;
+
+                if (item.Count == 0)
+                    itemList.Remove(item);
+            }
+        }
+    }
+    public void BuyItem(string itemCode)
+    {
+        int cost = Settings.GetItemInfo(itemCode).Buy;
+
+        if(Gold.GOLD >= cost)
+        {
+            Gold.GOLD -= cost;
+
+            AddItem(itemCode, 1);
+
+        }
+        else
+        {
+            Debug.Log("돈이 부족");
+        }
     }
     public Item GetItemAt(int i)
     {
