@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/1. Exported Assets/4. Characters/Yippy Kawaii/Showcase_preview.unity
-    guid: d7ebbd80c09164047a9d239076b329cb
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/TTTest.unity
     guid: a77c7208485bdb848bbe45f2f054e5ce
