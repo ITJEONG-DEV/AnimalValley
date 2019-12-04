@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //확인용 지우기
 public struct info_
 {
     public static int chestAcc;
@@ -8,6 +9,17 @@ public struct info_
     public static int skin;
     public static int face;
     public static int animal = 0;
+    public static string name;
+
+    public void setName(string name_)
+    {
+        name = name_;
+    }
+
+    public string getName()
+    {
+        return name;
+    }
 
     public void setAniType(int n)
     {
@@ -73,9 +85,9 @@ public class characterInfo : MonoBehaviour
     //public static Material skin;
     //public static Material face;
     //public static int animal = 0;
+    public static info_ info = new info_();
 
 
-    public info_ info = new info_();
     void Start()
     {
         
@@ -123,7 +135,7 @@ public class characterInfo : MonoBehaviour
 
         Debug.Log("동물이름: "+ name);
 
-        
+        info.setName(name);
         int typeA = info.getAnimal();
         string faceName=zoo[typeA].transform.Find("Mesh").transform.Find("Face01").GetComponent<SkinnedMeshRenderer>().material.name;
       
@@ -179,5 +191,10 @@ public class characterInfo : MonoBehaviour
 
         Debug.Log("머리 악세서리 번호 : " + info.get_headAcc());
 
+    }
+
+    public void sc()
+    {
+        SceneManager.LoadScene("TTTest");
     }
 }

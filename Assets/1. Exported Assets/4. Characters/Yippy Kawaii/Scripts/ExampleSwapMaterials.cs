@@ -12,6 +12,7 @@ public class ExampleSwapMaterials : MonoBehaviour
 
     void Start()
     {
+        rend = this.gameObject.AddComponent<Renderer>();
         rend = GetComponent<Renderer>();
         rend.enabled = true;
     }

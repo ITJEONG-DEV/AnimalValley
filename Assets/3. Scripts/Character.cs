@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 public class Character : MonoBehaviour
 {
     public Vector3 pos_= new Vector3(0,0,0);       // 소환할 위치 지정용 뵨수
@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     //public GameObject[] zoo;
     //public GameObject[] headAcc;
     //public GameObject[] chestAcc;
-
+    bool rrrr=true;
     public string toolName;   //도구나 무기이름
     GameObject temp;
     public float speed = 3f;
@@ -27,32 +27,48 @@ public class Character : MonoBehaviour
     void Start()
     {
         temp = GetComponent<GameObject>();  //필요하긴한가?
+       
     }
 
-    void FixedUpdate()
+    private void Update()
     {
-        Move();
-
-        if (isWalk)
-        {
-            walkingTime += Time.fixedDeltaTime;
-
-            if (walkingTime >= 1.5f) isRun = true;
-
-            if (forward || back)
-                GetComponent<Animator>().SetInteger("animation", 15);
-            else if (right)
-                GetComponent<Animator>().SetInteger("animation", 16);
-            else if (left)
-                GetComponent<Animator>().SetInteger("animation", 17);
-        }
-        else
-        {
-            isRun = false;
-            walkingTime = 0.0f;
-            GetComponent<Animator>().SetInteger("animation", 1);
-        }
+       
     }
+
+    private void FixedUpdate()
+    {
+        int i = 0;
+        if(rrrr==true)
+        {
+            setMe(characterInfo.info);
+            Debug.Log(i++);
+        }
+        rrrr = false;
+    }
+    //void FixedUpdate()
+    //{
+    //    Move();
+
+    //    if (isWalk)
+    //    {
+    //        walkingTime += Time.fixedDeltaTime;
+
+    //        if (walkingTime >= 1.5f) isRun = true;
+
+    //        if (forward || back)
+    //            GetComponent<Animator>().SetInteger("animation", 15);
+    //        else if (right)
+    //            GetComponent<Animator>().SetInteger("animation", 16);
+    //        else if (left)
+    //            GetComponent<Animator>().SetInteger("animation", 17);
+    //    }
+    //    else
+    //    {
+    //        isRun = false;
+    //        walkingTime = 0.0f;
+    //        GetComponent<Animator>().SetInteger("animation", 1);
+    //    }
+    //}
 
     void Move()
     {
@@ -114,16 +130,23 @@ public class Character : MonoBehaviour
         int num = info.getSkin();
         if(num<10)
         {
-            realNum = "0" + num.ToString();
+            realNum = "0" + num.ToString();          //Assets/1. Exported Assets/4. Characters/Yippy Kawaii/Prefab/Bear/Bear02.prefab
         }
-        temp = (GameObject)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/1. Exported Assets/4. Characters/Yippy Kawaii/Prefab/"+ info.getAnimal()+"/"+ realNum.ToString(),typeof(GameObject));
-        Instantiate(temp, pos_, Quaternion.identity);                   //스킨이랑 같이 불렀다.
+        string aaa = info.getName()+ "/" + info.getName() + realNum.ToString();
+        Debug.Log(aaa);
+        temp = Resources.Load(aaa) as GameObject;
+        Instantiate(temp, pos_, Quaternion.identity);
 
-        temp.gameObject.transform.Find("Mesh").gameObject.AddComponent<ExampleSwapMaterials>();
+        ExampleSwapMaterials ex=temp.gameObject.transform.Find("Mesh").gameObject.AddComponent<ExampleSwapMaterials>();
+        if(temp.gameObject.transform.Find("Mesh").gameObject.GetComponent<ExampleSwapMaterials>()==null)
+        {
+            Debug.Log("스크립트 할 당 안됨");
+            return;
+        }
        
         for(int i=1; i<=28; i++)
         {
-            temp.gameObject.transform.Find("Mesh").transform.Find("Face01").GetComponent<ExampleSwapMaterials>().SendMessage("onclickEvent");
+            temp.gameObject.transform.Find("Mesh").transform.Find("Face01").SendMessage("onclickEvent");
             if (i== info.getFace())
             {
                 break;
@@ -165,7 +188,7 @@ public class Character : MonoBehaviour
 
             }
         }
-
+        DontDestroyOnLoad(temp);
 
     }
 
@@ -179,7 +202,7 @@ public class Character : MonoBehaviour
         
         if (toolName==null)
         {
-            tool_Object = (GameObject)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Custom Assets/Item/Prefab/"+item, typeof(GameObject));
+            tool_Object = (GameObject)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Custom Assets/Item/Prefab/" + item, typeof(GameObject));
             Instantiate(tool_Object,pos, Quaternion.identity);
             tool_Object.SetActive(true);
             toolName = item;
