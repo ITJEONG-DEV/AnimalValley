@@ -289,6 +289,16 @@ PrefabInstance:
       propertyPath: mouseSensitivity
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1073366866021695191, guid: a4f214b7c7f719e40adb5982c8767b67,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710444838798107394, guid: a4f214b7c7f719e40adb5982c8767b67,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f214b7c7f719e40adb5982c8767b67, type: 3}
 --- !u!1 &1974862010
