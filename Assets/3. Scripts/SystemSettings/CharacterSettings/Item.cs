@@ -46,6 +46,7 @@ public class Item
             number = value;
         }
     }
+
     public string ItemCode
     {
         get
