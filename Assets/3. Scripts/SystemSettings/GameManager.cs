@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
         // 게임 시작 시, 초기 설정(불러오기)
         InitialSettings();
 
-
         // code for test
         /*
         TimeSettings();
@@ -46,7 +45,9 @@ public class GameManager : MonoBehaviour
 
         Save();
         */
-
+        Inventory inven = GetComponent<Inventory>();
+        inven.ShowSemiInventory(itemList);
+        //inven.ShowInventory(itemList); ->ESC를 눌러 메뉴의 인벤토리를 켰을 때만 실행
     }
 
     void Update()
