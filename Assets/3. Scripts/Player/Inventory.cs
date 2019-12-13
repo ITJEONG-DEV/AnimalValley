@@ -21,25 +21,49 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         Menu.SetActive(false);
+
+        // initial
+        SemiInven_Icon = new GameObject[10];
+        SemiInven_Number = new GameObject[10];
     }
 
     // Update is called once per frame
     void Update()
     {
         Inventory_Select();
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             KeyDown_ESC();
         }
     }
-
+    public bool MenuStatus{
+        get
+        {
+            return Menu.activeSelf;
+        }
+    }
+    public void ShowMenu()
+    {
+        Menu.SetActive(true);
+    }
+    public void CloseMenu()
+    {
+        Menu.SetActive(false);
+    }
+    
+    // renew semi inventory
+    public void RenewSemiInventory(List<Item> itemList)
+    {
+        RemoveSemiInventory();
+        ShowSemiInventory(itemList);
+    }
     // 일반 화면 하단의 세미-인벤토리에 아이템 띄우기
     public void ShowSemiInventory(List<Item> itemList) 
     {
         string Number = "";
         for (int i = 0; i < itemList.Count; i++)
         {
-            Debug.Log(itemList[i].ItemCode);
+            // Debug.Log(itemList[i].ItemCode);
             SemiInven_Icon[i].GetComponent<Image>().sprite = Resources.Load(itemList[i].ItemCode, typeof(Sprite)) as Sprite;            
             Number = itemList[i].Count.ToString();
             if(Number.Equals(0))
@@ -49,7 +73,6 @@ public class Inventory : MonoBehaviour
             SemiInven_Number[i].GetComponent<Text>().text = Number;
         }
     }
-
     // 일반 화면 하단의 세미-인벤토리 아이템 지우기
     public void RemoveSemiInventory()
     {
@@ -61,6 +84,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void RenewInventory(List<Item> itemList)
+    {
+        RemoveInventoy();
+        ShowInventory(itemList);
+    }
     // 메뉴의 인벤토리 창에서 아이템 띄우기 : ESC로 메뉴 탭 열었을 때만 실행해야 함... 
     public void ShowInventory(List<Item> itemList)
     {
@@ -162,76 +190,67 @@ public class Inventory : MonoBehaviour
                 break;
         }
     }
-
     public static void KeyDown_1()
     {
         Inven_Select_Pos.x = -4.6f;
         Inven_Select.transform.position = Inven_Select_Pos; 
     }
-
     public static void KeyDown_2()
     {
         Inven_Select_Pos.x = -3.58f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-
     public static void KeyDown_3()
     {
         Inven_Select_Pos.x = -2.56f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-
     public static void KeyDown_4()
     {
         Inven_Select_Pos.x = -1.54f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-
     public static void KeyDown_5()
     {
         Inven_Select_Pos.x = -0.52f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-
     public static void KeyDown_6()
     {
         Inven_Select_Pos.x = 0.52f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-
     public static void KeyDown_7()
     {
         Inven_Select_Pos.x = 1.54f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-
     public static void KeyDown_8()
     {
         Inven_Select_Pos.x = 2.56f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-
     public static void KeyDown_9()
     {
         Inven_Select_Pos.x = 3.58f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-
     public static void KeyDown_0()
     {
         Inven_Select_Pos.x = 4.6f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
-    
     public void KeyDown_ESC()
     {
         if(Menu.activeSelf)
         {
             Menu.SetActive(false);
+            RemoveInventoy();
         }
         else
         {
             Menu.SetActive(true);
+            ShowInventory(GameManager.GetItemList());
         }
     }
 }

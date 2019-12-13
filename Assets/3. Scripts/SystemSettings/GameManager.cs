@@ -17,17 +17,28 @@ public class GameManager : MonoBehaviour
     }
 
     private const string path = "Assets/3. Scripts/SystemSettings/CharacterSettings/data.data";
-    private List<Item> itemList = new List<Item>();
+    private static List<Item> itemList = new List<Item>();
     private float time;
 
     private string name;
     private string valleyName;
 
+    private Inventory inventory;
+
     void Start()
     {
+        Screen.SetResolution(1920, 1080, true);
+
         // 게임 시작 시, 초기 설정(불러오기)
         InitialSettings();
 
+        AddItem("RCV0", 3);
+        AddItem("TTAM", 1);
+        AddItem("TTHM", 1);
+        AddItem("TTOM", 1);
+        AddItem("TTPM", 1);
+        AddItem("TTWM", 1);
+         
         // code for test
         /*
         TimeSettings();
@@ -45,42 +56,46 @@ public class GameManager : MonoBehaviour
 
         Save();
         */
-        Inventory inven = GetComponent<Inventory>();
-        inven.ShowSemiInventory(itemList);
-        //inven.ShowInventory(itemList); ->ESC를 눌러 메뉴의 인벤토리를 켰을 때만 실행
     }
 
     void Update()
     {
-        time += Time.deltaTime;
-
-        if (time >= 10.0f)
+        if (!inventory.MenuStatus)
         {
-            GameTime.minute += 5;
-            if (GameTime.minute >= 60)
+            time += Time.deltaTime;
+
+            if (time >= 10.0f)
             {
-                GameTime.hour += 1;
-                GameTime.minute -= 60;
-
-                if (GameTime.hour > 24)
+                GameTime.minute += 5;
+                if (GameTime.minute >= 60)
                 {
-                    GameTime.hour -= 24;
+                    GameTime.hour += 1;
+                    GameTime.minute -= 60;
+
+                    if (GameTime.hour > 24)
+                    {
+                        GameTime.hour -= 24;
+                    }
                 }
+                time = 0f;
+
+                // show time
+                Debug.Log(GameTime.ToString());
             }
-            time = 0f;
 
-            // show time
-            Debug.Log(GameTime.ToString());
+            if (GameTime.hour == 1)
+            {
+                // faint()
+            }
+
+            if (GameTime.hour == 6)
+            {
+
+            }
         }
-
-        if (GameTime.hour == 1)
+        else
         {
-            // faint()
-        }
-
-        if (GameTime.hour == 6)
-        {
-
+            Debug.Log("Stopped");
         }
     }
 
@@ -121,6 +136,7 @@ public class GameManager : MonoBehaviour
             }
 
             // character info : characterType, characterSkin, characterEmotion, accessory1(head), accessory2(body)
+            tempStr = streamReader.ReadLine().Split(' ');
 
             // user info
             tempStr = streamReader.ReadLine().Split(' ');
@@ -192,7 +208,11 @@ public class GameManager : MonoBehaviour
         // 아이템 정보 불러오기(
         ItemSettings();
 
+        // inventory settings
+        InventorySettings();
+
         Load();
+
 
         // time info
         Debug.Log(GameTime.ToString());
@@ -230,12 +250,26 @@ public class GameManager : MonoBehaviour
         GameTime.ToString();
     }
 
+    void InventorySettings()
+    {
+        inventory = GetComponent<Inventory>();
+        inventory.ShowSemiInventory(itemList);
+        inventory.CloseMenu();
+        //inven.ShowInventory(itemList); ->ESC를 눌러 메뉴의 인벤토리를 켰을 때만 실행
+    }
+
     // item 정보를 읽어오는 함수
     void ItemSettings()
     {
         Settings.RoadItemName();
     }
 
+    private void ChangeItemListUI()
+    {
+        if (inventory.MenuStatus)
+            inventory.RenewInventory(itemList);
+        inventory.RenewSemiInventory(itemList);
+    }
     public void AddItem(string itemCode, int count)
     {
         if (count < 1) return;
@@ -246,11 +280,13 @@ public class GameManager : MonoBehaviour
             {
                 item.Count += count;
 
+                ChangeItemListUI();
                 return;
             }
         }
 
         itemList.Add(new Item(itemCode, count));
+        ChangeItemListUI();
     }
     public void UseItem(string itemCode)
     {
@@ -270,6 +306,8 @@ public class GameManager : MonoBehaviour
 
                 if (item.Count == 0)
                     itemList.Remove(item);
+
+                ChangeItemListUI();
             }
         }
     }
@@ -285,6 +323,8 @@ public class GameManager : MonoBehaviour
 
                 if (item.Count == 0)
                     itemList.Remove(item);
+
+                ChangeItemListUI();
             }
         }
     }
@@ -298,6 +338,7 @@ public class GameManager : MonoBehaviour
 
             AddItem(itemCode, 1);
 
+            ChangeItemListUI();
         }
         else
         {
@@ -314,6 +355,11 @@ public class GameManager : MonoBehaviour
         return item;
     }
 
+    // inventory
+    public static List<Item> GetItemList()
+    {
+        return itemList;
+    }
     int Day
     {
         get
