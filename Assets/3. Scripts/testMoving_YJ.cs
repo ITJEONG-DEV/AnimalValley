@@ -7,14 +7,10 @@ enum PLAYERSTATE
 {
     PLAYERSTATE_IDLE,
     PLAYERSTATE_RUN,
-    PLAYERSTATE_TALK,    //상호작용
-    PLAYERSTATE_ACTION  //도구
-}
-enum ATTACKSTATE
-{
-    ATTACKSTATE_IDLE,
-    ATTACKSTATE_ATTACK,
-    ATTACKSTATE_DIE
+    PLAYERSTATE_USE_ITEM,    //상호작용
+    PLAYERSTATE_ACTION,  //도구
+    PLAYERSTATE_ATTACK,
+    PLAYERSTATE_DIE
 }
 public class testMoving_YJ : MonoBehaviour
 {
@@ -32,7 +28,7 @@ public class testMoving_YJ : MonoBehaviour
     [SerializeField] int bullet_Speed;
     Transform myTransform;
     Transform model;
-
+    int Weapon_case;
     Animator ani;
     string temp = null;
     Vector3 mouseMove;
@@ -41,7 +37,6 @@ public class testMoving_YJ : MonoBehaviour
     Transform cameraTransform;
     CharacterController cc;
     private PLAYERSTATE playerState;
-    private ATTACKSTATE attackState;
     private Vector3 playerDir;
 
     private float verticalVelocity;
@@ -65,78 +60,63 @@ public class testMoving_YJ : MonoBehaviour
         Balance();
         //CameraDistanceCtrl();
 
-
-        if (cc.isGrounded)
-        {
-            GradientCheck();
-            MoveCalc(1.0f);
-        }
-        else
-        {
-            ani.SetBool("isGrounded", false);
-            move.y -= gravity * Time.deltaTime;
-
-            MoveCalc(0.01f);
-        }
+        
+        move.y -= gravity * Time.deltaTime;
+        MoveCalc(1.0f);
 
         cc.Move(move * Time.deltaTime);
 
         #region 캐릭터 이동 애니메이션
-
-        //캐릭터 상태가 점프가 아니라면 전진 후진 해라 // stop이 아닐때도
-        if (playerState != PLAYERSTATE.PLAYERSTATE_ACTION || playerState != PLAYERSTATE.PLAYERSTATE_TALK)
+        //캐릭터 회전
+        if (Input.GetKey(KeyCode.D))
         {
-            //캐릭터 회전
-            if (Input.GetKey(KeyCode.D))
-            {             
-                ani.SetBool("walk", true);
-                playerState = PLAYERSTATE.PLAYERSTATE_RUN;
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-              
-                ani.SetBool("walk", true);
-                playerState = PLAYERSTATE.PLAYERSTATE_RUN;
-            }
-            if (Input.GetKey(KeyCode.W))
-            {              
-                ani.SetBool("walk", true);
-                playerState = PLAYERSTATE.PLAYERSTATE_RUN;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-           
-                ani.SetBool("walk", true);
-                playerState = PLAYERSTATE.PLAYERSTATE_RUN;
-            }
+            ani.SetBool("walk", true);
+            playerState = PLAYERSTATE.PLAYERSTATE_RUN;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
 
-            //키를 눌렀다 뗐을 경우
-            if (Input.GetKeyUp(KeyCode.W))
-            {
-                ani.SetBool("walk", false);
-                playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
-               
-            }
+            ani.SetBool("walk", true);
+            playerState = PLAYERSTATE.PLAYERSTATE_RUN;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            ani.SetBool("walk", true);
+            playerState = PLAYERSTATE.PLAYERSTATE_RUN;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
 
-            if (Input.GetKeyUp(KeyCode.S))
-            {
-                ani.SetBool("walk", false);
-                playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
-               
-            }
-            if (Input.GetKeyUp(KeyCode.A))
-            {
-                ani.SetBool("walk", false);
-                playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
-             
-            }
+            ani.SetBool("walk", true);
+            playerState = PLAYERSTATE.PLAYERSTATE_RUN;
+        }
 
-            if (Input.GetKeyUp(KeyCode.D))
-            {
-                ani.SetBool("walk", false);
-                playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
-               
-            }
+        //키를 눌렀다 뗐을 경우
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            ani.SetBool("walk", false);
+            playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            ani.SetBool("walk", false);
+            playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            ani.SetBool("walk", false);
+            playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            ani.SetBool("walk", false);
+            playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+                    
         }
 
         //캐릭터 점프(GetKeyDown은 최초 누르는 한 번만 호출됨)
@@ -167,12 +147,12 @@ public class testMoving_YJ : MonoBehaviour
         #endregion
 
         #region 스킬
-        if (Input.GetKeyDown(KeyCode.Mouse0))       //마우스 왼쪽 키
+        if (Input.GetKeyDown(KeyCode.Mouse1))       //마우스 오른쪽 키
         {
-            playerState = PLAYERSTATE.PLAYERSTATE_TALK;
+            playerState = PLAYERSTATE.PLAYERSTATE_USE_ITEM;
 
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))       //마우스 오른족 키
+        if (Input.GetKeyDown(KeyCode.Mouse0))       //마우스 왼쪽 키
         {
             
             playerState=PLAYERSTATE.PLAYERSTATE_ACTION;
@@ -221,47 +201,48 @@ public class testMoving_YJ : MonoBehaviour
             {
                 ani.SetBool("attack1", true);
                 temp = "attack1";
+                playerState = PLAYERSTATE.PLAYERSTATE_ATTACK;
             }
 
             
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             ani.SetBool(temp, false);
         }
 
 
-            if (attackState != ATTACKSTATE.ATTACKSTATE_ATTACK)
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 왼쪽 클릭
-            {
-                //StartCoroutine(Attack(Weapon.Weapon_case));
-            }
-        }
+        //if (playerState == PLAYERSTATE.PLAYERSTATE_ATTACK)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 왼쪽 클릭
+        //    {
+        //        StartCoroutine(Attack(Weapon_case));   //무기의 종류에따라 
+        //    }
+        //}
 
         #endregion
     }
-    IEnumerator Attack(int weapon)
-    {
-        attackState = ATTACKSTATE.ATTACKSTATE_ATTACK;
-        ani.SetBool("Attack", true);
+    //IEnumerator Attack(int weapon)
+    //{
+    //    playerState = PLAYERSTATE.PLAYERSTATE_ATTACK;
+    //    ani.SetBool("Attack", true);
 
-        if (weapon == 1) // dagger
-            yield return new WaitForSeconds(1);
-        else
-        {   // wand
-            yield return new WaitForSeconds(0.3f);
-            GameObject fire = Instantiate(bullet, bulletSponeLoca);
-            fire.transform.parent = null;
-            // fire.GetComponent<Rigidbody>().MovePosition(bulletSponeLoca.transform.position + new Vector3(300, 0, 0));
-            yield return new WaitForSeconds(0.3f);
-            fire.GetComponent<Rigidbody>().AddForce(bulletSponeLoca.forward * bullet_Speed * Time.deltaTime, ForceMode.Impulse);
-            yield return new WaitForSeconds(0.4f);
-        }
-        ani.SetBool("Attack", false);
-        attackState = ATTACKSTATE.ATTACKSTATE_IDLE;
-    }
+    //    if (weapon == 1) // dagger
+    //        yield return new WaitForSeconds(1);
+    //    else
+    //    {   // wand
+    //        yield return new WaitForSeconds(0.3f);
+    //        GameObject fire = Instantiate(bullet, bulletSponeLoca);
+    //        fire.transform.parent = null;
+    //        // fire.GetComponent<Rigidbody>().MovePosition(bulletSponeLoca.transform.position + new Vector3(300, 0, 0));
+    //        yield return new WaitForSeconds(0.3f);
+    //        fire.GetComponent<Rigidbody>().AddForce(bulletSponeLoca.forward * bullet_Speed * Time.deltaTime, ForceMode.Impulse);
+    //        yield return new WaitForSeconds(0.4f);
+    //    }
+    //    ani.SetBool("Attack", false);
+    //    playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+    //}
 
     //IEnumerator Rolling()   // 구르기 바로 변수를 바꾸면 애니메이션이 멈춰버려서 시간차를 두고 멈추게 함.
     //{
@@ -276,7 +257,7 @@ public class testMoving_YJ : MonoBehaviour
     //}
     void LateUpdate()
     {
-        //cameraParentTransform.position = myTransform.position;  //캐릭터의 머리 높이쯤
+        cameraParentTransform.position = myTransform.position;  //캐릭터의 머리 높이쯤
         //mouseMove += new Vector3(-Input.GetAxisRaw("Mouse Y") * mouseSensitivity, Input.GetAxisRaw("Mouse X") * mouseSensitivity, 0);   //마우스의 움직임을 가감
         //if (mouseMove.x < -20)  //높이는 제한을 둔다. 슈팅 게임이라면 거의 90에 가깝게 두는게 좋을수도 있다.
         //    mouseMove.x = -20;
@@ -293,14 +274,14 @@ public class testMoving_YJ : MonoBehaviour
             myTransform.eulerAngles = new Vector3(0, myTransform.eulerAngles.y, 0);
     }
 
-    //void CameraDistanceCtrl()
-    //{
-    //    Camera.main.transform.localPosition += new Vector3(0, 0, Input.GetAxisRaw("Mouse ScrollWheel") * 2.0f); //휠로 카메라의 거리를 조절한다.
-    //    if (-1 < Camera.main.transform.localPosition.z)
-    //        Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -1);    //최대로 가까운 수치
-    //    else if (Camera.main.transform.localPosition.z < -5)
-    //        Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -5);    //최대로 먼 수치
-    //}
+    void CameraDistanceCtrl()
+    {
+        Camera.main.transform.localPosition += new Vector3(0, 0, Input.GetAxisRaw("Mouse ScrollWheel") * 2.0f); //휠로 카메라의 거리를 조절한다.
+        if (-1 < Camera.main.transform.localPosition.z)
+            Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -1);    //최대로 가까운 수치
+        else if (Camera.main.transform.localPosition.z < -5)
+            Camera.main.transform.localPosition = new Vector3(Camera.main.transform.localPosition.x, Camera.main.transform.localPosition.y, -5);    //최대로 먼 수치
+    }
 
     void MoveCalc(float ratio)
     {
@@ -321,6 +302,7 @@ public class testMoving_YJ : MonoBehaviour
             Quaternion cameraRotation = cameraParentTransform.rotation;
             cameraRotation.x = cameraRotation.z = 0;    //y축만 필요하므로 나머지 값은 0으로 바꾼다.
             //자연스러움을 위해 Slerp로 회전시킨다.
+
             myTransform.rotation = Quaternion.Slerp(myTransform.rotation, cameraRotation, 10.0f * Time.deltaTime);
             if (move != Vector3.zero)//Quaternion.LookRotation는 (0,0,0)이 들어가면 경고를 내므로 예외처리 해준다.
             {
@@ -340,6 +322,7 @@ public class testMoving_YJ : MonoBehaviour
         //  float speed = move.sqrMagnitude;    //현재 속도를 애니메이터에 세팅한다.
         //   ani.SetFloat("Speed", speed);
         move.y = tempMoveY; //y값 복구
+        
     }
 
     void GradientCheck()
