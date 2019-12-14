@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2166419667262811242}
   - component: {fileID: 2166419667263614026}
   - component: {fileID: 2166419667264712330}
+  - component: {fileID: -3866198163032400363}
   m_Layer: 0
-  m_Name: Mud_Patch_V 1
-  m_TagString: Untagged
+  m_Name: Mud_Patch_V1
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a2ee7da84ed50c4790fc57887a173c7, type: 2}
+  - {fileID: 2100002, guid: 3b7eda01ee0463a4c84f93e9c4c3e690, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,3 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-3866198163032400363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166419667262451786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4672354, y: 0.21970811, z: 1.4672351}
+  m_Center: {x: -0.0027023554, y: 0.10985406, z: 0.0033770204}
