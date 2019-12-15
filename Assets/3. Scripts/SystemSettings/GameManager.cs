@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
     private static List<Item> itemList = new List<Item>();
     private float time;
 
+    public GameObject UI;
+    public GameObject CHARACTER;
+
     public GameObject Timer;
     public GameObject Money;
     public Image hpbar;
@@ -28,11 +32,22 @@ public class GameManager : MonoBehaviour
     public GameObject sun;
     public GameObject moon;
 
+
     private static string name;
     private static string valleyName;
 
     private Inventory inventory;
     private static bool isReady = false;
+
+    private string characterAppearanceInfo;
+
+    public static bool isStart = false;
+    private static bool isRunStart = false;
+
+    public static bool TALKING = false;
+
+    public static string currentSceneString = "";
+    public static Vector3 characterPosition;
 
     public static bool Ready
     {
@@ -42,87 +57,86 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(UI);
+        DontDestroyOnLoad(CHARACTER);
+    }
+
     void Start()
     {
         Screen.SetResolution(1920, 1080, true);
-        sun.SetActive(false);
-        moon.SetActive(false);
-
         // 게임 시작 시, 초기 설정(불러오기)
         InitialSettings();
-
         isReady = true;
-
-        AddItem("RCV0", 3);
-        AddItem("TTAM", 1);
-        AddItem("TTHM", 1);
-        AddItem("TTOM", 1);
-        AddItem("TTPM", 1);
-        AddItem("TTWM", 1);
-
-        // code for test
-        /*
-        TimeSettings();
-
-        AddItem("TTSM", 1);
-        AddItem("BED5", 7);
-
-        Gold.GOLD = 500;
-
-        Status.SetHp(150);
-        Status.SetEnerge(200);
-
-        name = "itjeong";
-        valleyName = "apple cream roll";
-
-        Save();
-        */
-        ShowGold();
-        ShowHp();
-        ShowEnergy();
     }
 
     void Update()
     {
-        if (!inventory.MenuStatus)
+        if(currentSceneString.Equals(SceneManager.GetActiveScene()))
         {
-            time += Time.deltaTime;
+            // character position
 
-            if (time >= 10.0f)
+            currentSceneString = "";
+            CHARACTER.transform.position = characterPosition;
+        }
+        if(isStart)
+        {
+            if(!isRunStart)
             {
-                GameTime.minute += 5;
-                if (GameTime.minute >= 60)
+                sun.SetActive(false);
+                moon.SetActive(false);
+
+
+
+                ShowGold();
+                ShowHp();
+                ShowEnergy();
+            }
+
+            if (!inventory.MenuStatus || TALKING)
+            {
+                time += Time.deltaTime;
+
+                if (time >= 10.0f)
                 {
-                    GameTime.hour += 1;
-                    GameTime.minute -= 60;
-
-                    if (GameTime.hour > 24)
+                    GameTime.minute += 5;
+                    if (GameTime.minute >= 60)
                     {
-                        GameTime.hour -= 24;
+                        GameTime.hour += 1;
+                        GameTime.minute -= 60;
+
+                        if (GameTime.hour > 24)
+                        {
+                            GameTime.hour -= 24;
+                        }
                     }
+                    time = 0f;
+
+                    // show time
+                    Debug.Log(GameTime.ToString());
                 }
-                time = 0f;
 
-                // show time
-                Debug.Log(GameTime.ToString());
+                if (GameTime.hour == 1)
+                {
+                    // faint()
+                }
+
+                if (GameTime.hour == 6)
+                {
+
+                }
             }
-
-            if (GameTime.hour == 1)
+            else
             {
-                // faint()
+                Debug.Log("Stopped");
             }
 
-            if (GameTime.hour == 6)
-            {
+            ShowTime();
+            ShowSun();
+        }
 
-            }
-        }
-        else
-        {
-            Debug.Log("Stopped");
-        }
-        ShowTime();
-        ShowSun();
     }
 
     bool Load()
@@ -155,14 +169,18 @@ public class GameManager : MonoBehaviour
 
             // item info
             tempStr = streamReader.ReadLine().Split(' ');
-
-            for (int i = 0; i < tempStr.Length / 2; i++)
+            for (int i = 0; i < (tempStr.Length / 2); i++)
             {
                 AddItem(tempStr[i * 2], int.Parse(tempStr[i * 2 + 1]));
             }
 
             // character info : characterType, characterSkin, characterEmotion, accessory1(head), accessory2(body)
+            characterAppearanceInfo = streamReader.ReadLine();
+
+            // character location info
             tempStr = streamReader.ReadLine().Split(' ');
+            currentSceneString = tempStr[0];
+            characterPosition = new Vector3(float.Parse(tempStr[1]), float.Parse(tempStr[2]), float.Parse(tempStr[3]));
 
             // user info
             tempStr = streamReader.ReadLine().Split(' ');
@@ -170,6 +188,11 @@ public class GameManager : MonoBehaviour
 
             // valley info
             valleyName = streamReader.ReadLine().Trim();
+
+            // npc love
+            tempStr = streamReader.ReadLine().Split(' ');
+
+            // crop info
 
             streamReader.Close();
             fileStream.Close();
@@ -211,12 +234,23 @@ public class GameManager : MonoBehaviour
             streamWriter.WriteLine(itemString);
 
             // character info : characterType, characterSkin, characterEmotion, accessory1(head), accessory2(body)
+            streamWriter.WriteLine(characterAppearanceInfo);
+
+            // character location info
+            string characterLocationString = transform.position.x + " " + transform.position.y + " " + transform.position.z;
+            streamWriter.WriteLine(SceneManager.GetActiveScene() + " " + characterLocationString);
 
             // user info
             streamWriter.WriteLine(name);
 
             // valley info
             streamWriter.WriteLine(valleyName);
+
+            // npc love
+            // 0 0 0 0 0 0 0 0
+            streamWriter.WriteLine("0 0 0 0 0 0 0 0");
+
+            // crop info
 
             streamWriter.Close();
             fileStream.Close();
@@ -241,28 +275,28 @@ public class GameManager : MonoBehaviour
 
 
         // time info
-        Debug.Log(GameTime.ToString());
+        //Debug.Log(GameTime.ToString());
 
         // story status info
 
         // gold info
-        Debug.Log(Gold.ToString());
+        //Debug.Log(Gold.ToString());
 
         // status info
-        Debug.Log(Status.ToString());
+        //Debug.Log(Status.ToString());
 
         // item info
-        foreach (Item item in itemList)
-        {
-            Debug.Log(item.ToString());
-        }
+        //foreach (Item item in itemList)
+        //{
+        //    Debug.Log(item.ToString());
+        //}
         // chararcter info
 
         // user info
-        Debug.Log(name);
+        //Debug.Log(name);
 
         // valley info
-        Debug.Log(valleyName);
+        //Debug.Log(valleyName);
     }
 
     // 처음 시작 시간을 설정하는 함수
@@ -301,19 +335,21 @@ public class GameManager : MonoBehaviour
     {
         if (count < 1) return;
 
-        foreach (Item item in itemList)
-        {
-            if (item.ItemCode.Equals(itemCode))
+        if (itemList.Count>=1)
+            foreach (Item item in itemList)
             {
-                item.Count += count;
+                if (item.ItemCode.Equals(itemCode))
+                {
+                    item.Count += count;
 
-                ChangeItemListUI();
-                return;
+                    ChangeItemListUI();
+                    return;
+                }
             }
-        }
 
         itemList.Add(new Item(itemCode, count));
-        ChangeItemListUI();
+        if(isReady)
+            ChangeItemListUI();
     }
     public void UseItem(string itemCode)
     {
