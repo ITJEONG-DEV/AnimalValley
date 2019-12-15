@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,14 +21,23 @@ public class GameManager : MonoBehaviour
     private static List<Item> itemList = new List<Item>();
     private float time;
 
-    private string name;
-    private string valleyName;
+    public GameObject Timer;
+    public GameObject Money;
+    public Image hpbar;
+    public Image energybar;
+    public GameObject sun;
+    public GameObject moon;
+
+    private static string name;
+    private static string valleyName;
 
     private Inventory inventory;
 
     void Start()
     {
         Screen.SetResolution(1920, 1080, true);
+        sun.SetActive(false);
+        moon.SetActive(false);
 
         // 게임 시작 시, 초기 설정(불러오기)
         InitialSettings();
@@ -38,7 +48,7 @@ public class GameManager : MonoBehaviour
         AddItem("TTOM", 1);
         AddItem("TTPM", 1);
         AddItem("TTWM", 1);
-         
+
         // code for test
         /*
         TimeSettings();
@@ -56,6 +66,9 @@ public class GameManager : MonoBehaviour
 
         Save();
         */
+        ShowGold();
+        ShowHp();
+        ShowEnergy();
     }
 
     void Update()
@@ -97,6 +110,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Stopped");
         }
+        ShowTime();
+        ShowSun();
     }
 
     bool Load()
@@ -130,7 +145,7 @@ public class GameManager : MonoBehaviour
             // item info
             tempStr = streamReader.ReadLine().Split(' ');
 
-            for(int i=0; i<tempStr.Length/2; i++)
+            for (int i = 0; i < tempStr.Length / 2; i++)
             {
                 AddItem(tempStr[i * 2], int.Parse(tempStr[i * 2 + 1]));
             }
@@ -143,7 +158,7 @@ public class GameManager : MonoBehaviour
             name = tempStr[0];
 
             // valley info
-            valleyName = streamReader.ReadLine().Trim() ;
+            valleyName = streamReader.ReadLine().Trim();
 
             streamReader.Close();
             fileStream.Close();
@@ -226,7 +241,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(Status.ToString());
 
         // item info
-        foreach(Item item in itemList)
+        foreach (Item item in itemList)
         {
             Debug.Log(item.ToString());
         }
@@ -270,6 +285,7 @@ public class GameManager : MonoBehaviour
             inventory.RenewInventory(itemList);
         inventory.RenewSemiInventory(itemList);
     }
+
     public void AddItem(string itemCode, int count)
     {
         if (count < 1) return;
@@ -290,16 +306,16 @@ public class GameManager : MonoBehaviour
     }
     public void UseItem(string itemCode)
     {
-        foreach(Item item in itemList)
+        foreach (Item item in itemList)
         {
-            if(item.ItemCode.Equals(itemCode))
+            if (item.ItemCode.Equals(itemCode))
             {
                 item.Count -= 1;
 
                 if (item.Hp != -1)
                     Status.CUR_HP += item.Hp;
 
-                if(item.Energe != -1)
+                if (item.Energe != -1)
                     Status.CUR_ENERGE += item.Energe;
 
                 // item effect
@@ -313,9 +329,9 @@ public class GameManager : MonoBehaviour
     }
     public void SellItem(string itemCode)
     {
-        foreach(Item item in itemList)
+        foreach (Item item in itemList)
         {
-            if(item.ItemCode.Equals(itemCode))
+            if (item.ItemCode.Equals(itemCode))
             {
                 item.Count -= 1;
 
@@ -332,7 +348,7 @@ public class GameManager : MonoBehaviour
     {
         int cost = Settings.GetItemInfo(itemCode).Buy;
 
-        if(Gold.GOLD >= cost)
+        if (Gold.GOLD >= cost)
         {
             Gold.GOLD -= cost;
 
@@ -360,6 +376,7 @@ public class GameManager : MonoBehaviour
     {
         return itemList;
     }
+
     int Day
     {
         get
@@ -379,6 +396,59 @@ public class GameManager : MonoBehaviour
         get
         {
             return GameTime.minute;
+        }
+    }
+
+    public void ShowHp()
+    {
+        float HP = (float)Status.CUR_HP; //캐릭터 hp를 받아옴
+        hpbar.fillAmount = HP / 150f;
+    }
+
+    public void ShowEnergy()
+    {
+        float ENERGY = (float)Status.CUR_ENERGE;
+        energybar.fillAmount = ENERGY / 200f;
+    }
+
+    public void ShowTime()
+    {
+        Timer.GetComponent<Text>().text = GameTime.ToString();
+    }
+
+    public void ShowGold()
+    {
+        Money.GetComponent<Text>().text = Gold.GOLD.ToString();
+    }
+
+    public void ShowSun()
+    {
+        int nowTime = Hour;
+        if(nowTime >= 6 || nowTime <= 18)
+        {
+            moon.SetActive(false);
+            sun.SetActive(true);
+        }
+        else
+        {
+            sun.SetActive(false);
+            moon.SetActive(true);
+        }
+    }
+
+    public static string Name
+    {
+        get
+        {
+            return name;
+        }
+    }
+
+    public static string VillageName
+    {
+        get
+        {
+            return valleyName;
         }
     }
 }
