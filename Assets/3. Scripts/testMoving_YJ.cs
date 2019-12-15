@@ -338,7 +338,7 @@ public class testMoving_YJ : MonoBehaviour
     void Update()
     {
         Balance();
-        //CameraDistanceCtrl();
+        CameraDistanceCtrl();
     
 
         move.y -= gravity * Time.deltaTime;
@@ -477,24 +477,24 @@ public class testMoving_YJ : MonoBehaviour
             {
                 seed_name = "RSCS";
             }
-
           
 
-            if (seed_name.Substring(0, 2) == "RS")
-            {
-                string[] names = new string[2];
-                names[0] = groundName;
-                names[1] = seed_name;
-                if (groundName != null)
-                    GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("sowSeed", names);
-            }
+
+            //if (seed_name.Substring(0, 2) == "RS")
+            //{
+            //    string[] names = new string[2];
+            //    names[0] = groundName;
+            //    names[1] = seed_name;
+            //    if (groundName != null)
+            //        GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("sowSeed", names);
+            //}
 
 
         }
         if (Input.GetKey(KeyCode.Mouse0))       //마우스 왼쪽 키
         {
-        
-
+            if(groundName!=null)
+                GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("growingCrops", groundName);
             playerState = PLAYERSTATE.PLAYERSTATE_ACTION;
             //ani.SetBool();
             if (itemCode == null)
@@ -506,6 +506,7 @@ public class testMoving_YJ : MonoBehaviour
             {
                 ani.SetBool("sickle", true);
                 temp = "sickle";
+                GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("harvestCrops", groundName);
 
             }
             else if (itemCode.Substring(0, 2) == "TTH")    //괭이

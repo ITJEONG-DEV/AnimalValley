@@ -41932,6 +41932,27 @@ MonoBehaviour:
   normalGround: {fileID: 2100002, guid: 3b7eda01ee0463a4c84f93e9c4c3e690, type: 3}
   area: 
   seed: {fileID: 5273727080468021141, guid: 9af12b049919598408988b398bf3460b, type: 3}
+  plants_lv2:
+  - {fileID: 100000, guid: 937779b6f987d7a4a887dcac1fd2ab12, type: 3}
+  - {fileID: 100000, guid: 01ff373358cf54c488d4b6b59fb9cb0d, type: 3}
+  - {fileID: 100000, guid: 00d3bd697a10cbd4cbb3098500b898dc, type: 3}
+  - {fileID: 100000, guid: 09d2783626316ff408fc194403731e39, type: 3}
+  - {fileID: 100000, guid: 166bdcc346ddc034e8e9523f855b5ed1, type: 3}
+  plants_lv3:
+  - {fileID: 100000, guid: d96d3efc476a09e4a983883f17149b89, type: 3}
+  - {fileID: 100000, guid: 296f76daa24de1d4eb5730ca5673f8e8, type: 3}
+  - {fileID: 100000, guid: 4a293fdaac8372640b9718586d597cfb, type: 3}
+  - {fileID: 100000, guid: 5845280f9e4ff4143be903a672f7c811, type: 3}
+  - {fileID: 100000, guid: c31392a7053c9144398986a8dc211a48, type: 3}
+  - {fileID: 100000, guid: dac0d6d767bf8274ba8644f71f0347a4, type: 3}
+  - {fileID: 100000, guid: 872efdc0233a3054ba2a10cba56b5a43, type: 3}
+  - {fileID: 100000, guid: 458a21093698e1d47b41d79c66d11e39, type: 3}
+  - {fileID: 100000, guid: 41aff83036006344c87a55f1b4c6077b, type: 3}
+  - {fileID: 100000, guid: 653927307c9eb2a4e8ac7dcf76888e2b, type: 3}
+  - {fileID: 100000, guid: ab0e533cd302df44d99ac5b9578cf0f7, type: 3}
+  - {fileID: 100000, guid: f7e5828b67230ef4c92c98797b810cb2, type: 3}
+  - {fileID: 100000, guid: 72ec714f624ccae4bb3abbb61c422493, type: 3}
+  - {fileID: 100000, guid: 5c27923e230c9554bbcf5ca43d3f7c61, type: 3}
 --- !u!1001 &1982261530
 PrefabInstance:
   m_ObjectHideFlags: 0
