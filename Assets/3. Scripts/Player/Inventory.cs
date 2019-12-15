@@ -9,7 +9,18 @@ public class Inventory : MonoBehaviour
     static Vector3 Inven_Select_Pos;
     public GameObject MenuInvenIconPrefab; //메뉴에서 아이템 아이콘 띄우는 프리팹
     public GameObject MenuInvenNumberPrefab; //메뉴에서 아이템 개수 띄우는 프리팹
-    public GameObject Menu; //메뉴 불러오기 위한 변수  
+    public GameObject[] Menu; //메뉴 불러오기 위한 변수
+    public GameObject Menu_Selectbox;
+    public GameObject Menutext;
+    public GameObject Myname;
+    public GameObject Villagename;
+    public GameObject 소지금액;
+
+    Vector3 Menu_Selectbox_Pos;
+
+    private int MenuIndex;
+    public bool MenuOn;
+
 
     public GameObject[] SemiInven_Icon; //인벤토리에서 아이템 아이콘 저장하는 배열
     public GameObject[] SemiInven_Number; //인벤토리에서 아이템 개수 저장하는 배열
@@ -20,7 +31,13 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Menu.SetActive(false);
+        MenuIndex = 0;
+        MenuOn = false;
+        for(int i = 0; i < 6; i++)
+        {
+            Menu[i].SetActive(false);
+        }
+        Menu_Selectbox.SetActive(false);
 
         // initial
         SemiInven_Icon = new GameObject[10];
@@ -35,22 +52,38 @@ public class Inventory : MonoBehaviour
         {
             KeyDown_ESC();
         }
+        Menu_Select();
     }
+
     public bool MenuStatus{
         get
         {
-            return Menu.activeSelf;
+            return MenuOn;
         }
     }
+
     public void ShowMenu()
     {
-        Menu.SetActive(true);
+        MenuOn = true;
+        Menu[0].SetActive(true);
+        Menu_Selectbox.SetActive(true);
+        Myname.SetActive(true);
+        ShowInfoName();
+        ShowInfoVillageName();
+        ShowInfo소지금();
     }
+
     public void CloseMenu()
     {
-        Menu.SetActive(false);
+        MenuOn = false;
+        for(int i = 0; i < 6; i++)
+        {
+            Menu[i].SetActive(false);
+        }
+        Menu_Selectbox.SetActive(false);
+        Menutext.SetActive(false);
     }
-    
+
     // renew semi inventory
     public void RenewSemiInventory(List<Item> itemList)
     {
@@ -58,13 +91,13 @@ public class Inventory : MonoBehaviour
         ShowSemiInventory(itemList);
     }
     // 일반 화면 하단의 세미-인벤토리에 아이템 띄우기
-    public void ShowSemiInventory(List<Item> itemList) 
+    public void ShowSemiInventory(List<Item> itemList)
     {
         string Number = "";
         for (int i = 0; i < itemList.Count; i++)
         {
             // Debug.Log(itemList[i].ItemCode);
-            SemiInven_Icon[i].GetComponent<Image>().sprite = Resources.Load(itemList[i].ItemCode, typeof(Sprite)) as Sprite;            
+            SemiInven_Icon[i].GetComponent<Image>().sprite = Resources.Load(itemList[i].ItemCode, typeof(Sprite)) as Sprite;
             Number = itemList[i].Count.ToString();
             if(Number.Equals(0))
             {
@@ -80,7 +113,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             if(SemiInven_Icon[i] != null)
-                SemiInven_Icon[i].GetComponent<Image>().sprite = Resources.Load("0000", typeof(Sprite)) as Sprite;
+                SemiInven_Icon[i].GetComponent<Image>().sprite = Resources.Load("0", typeof(Sprite)) as Sprite;
 
             if(SemiInven_Number[i] != null)
                 SemiInven_Number[i].GetComponent<Text>().text = Number;
@@ -92,7 +125,7 @@ public class Inventory : MonoBehaviour
         RemoveInventoy();
         ShowInventory(itemList);
     }
-    // 메뉴의 인벤토리 창에서 아이템 띄우기 : ESC로 메뉴 탭 열었을 때만 실행해야 함... 
+    // 메뉴의 인벤토리 창에서 아이템 띄우기 : ESC로 메뉴 탭 열었을 때만 실행해야 함...
     public void ShowInventory(List<Item> itemList)
     {
         Vector3 IconPos = GameObject.Find("Menu_Item_Icon").transform.position;
@@ -147,9 +180,10 @@ public class Inventory : MonoBehaviour
         string Number = "";
         for(int i = 0; i < 30; i++)
         {
-            Inven_Icon[i].GetComponent<Image>().sprite = Resources.Load("0000", typeof(Sprite)) as Sprite;
+            Inven_Icon[i].GetComponent<Image>().sprite = Resources.Load("0", typeof(Sprite)) as Sprite;
             Inven_Number[i].GetComponent<Text>().text = Number;
         }
+        Debug.Log("삭제");
     }
 
     //숫자 키를 눌러 인벤토리 1칸~0칸까지 선택
@@ -196,7 +230,7 @@ public class Inventory : MonoBehaviour
     public static void KeyDown_1()
     {
         Inven_Select_Pos.x = -4.6f;
-        Inven_Select.transform.position = Inven_Select_Pos; 
+        Inven_Select.transform.position = Inven_Select_Pos;
     }
     public static void KeyDown_2()
     {
@@ -243,17 +277,121 @@ public class Inventory : MonoBehaviour
         Inven_Select_Pos.x = 4.6f;
         Inven_Select.transform.position = Inven_Select_Pos;
     }
+
+    public void Menu_Selectbox_Move()
+    {
+        Menu_Selectbox_Pos = Menu_Selectbox.transform.position;
+        switch(MenuIndex)
+        {
+            case 0: //menu_info
+                RemoveInventoy();
+                Menu_Selectbox_Pos.y = 857f;
+                Menu_Selectbox.transform.position = Menu_Selectbox_Pos;
+                ShowInfoName();
+                ShowInfoVillageName();
+                ShowInfo소지금();
+                Debug.Log("인포");
+                break;
+            case 1: //menu_item
+                ShowInventory(GameManager.GetItemList());
+                Menu_Selectbox_Pos.y = 780f;
+                Menu_Selectbox.transform.position = Menu_Selectbox_Pos;
+                Debug.Log("아이템");
+                break;
+            case 2: //menu_npc
+                RemoveInventoy();
+                Menu_Selectbox_Pos.y = 703f;
+                Menu_Selectbox.transform.position = Menu_Selectbox_Pos;
+                Debug.Log("npc");
+
+                break;
+            case 3: //menu_making
+                Menu_Selectbox_Pos.y = 626f;
+                Menu_Selectbox.transform.position = Menu_Selectbox_Pos;
+                Debug.Log("make");
+
+                break;
+            case 4: //menu_skill
+                Menu_Selectbox_Pos.y = 549f;
+                Menu_Selectbox.transform.position = Menu_Selectbox_Pos;
+                Debug.Log("skill");
+
+                break;
+            case 5: //menu_book
+                Menu_Selectbox_Pos.y = 472f;
+                Menu_Selectbox.transform.position = Menu_Selectbox_Pos;
+                Debug.Log("book");
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void Menu_Select()
+    {
+        if (MenuOn)
+        {
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Debug.Log("다운");
+                if (MenuIndex < 5)
+                {
+                    Menu[MenuIndex].SetActive(false);
+                    MenuIndex++;
+                    Menu[MenuIndex].SetActive(true);
+                    Menu_Selectbox_Move();
+                }
+                else
+                {
+                    MenuIndex = 5;
+                }
+                Debug.Log(MenuIndex);
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Debug.Log("업");
+                if (MenuIndex > 0)
+                {
+                    Menu[MenuIndex].SetActive(false);
+                    MenuIndex--;
+                    Menu[MenuIndex].SetActive(true);
+                    Menu_Selectbox_Move();
+                }
+                Debug.Log(MenuIndex);
+            }
+        }
+    }
+
     public void KeyDown_ESC()
     {
-        if(Menu.activeSelf)
+        if(MenuOn)
         {
-            Menu.SetActive(false);
-            RemoveInventoy();
+            CloseMenu();
+            //RemoveInventoy();
         }
         else
         {
-            Menu.SetActive(true);
-            ShowInventory(GameManager.GetItemList());
+            ShowMenu();
         }
+    }
+
+    public void ShowInfoName()
+    {
+        Myname.SetActive(true);
+        Myname.GetComponent<Text>().text = GameManager.Name;
+    }
+
+    public void ShowInfoVillageName()
+    {
+        Villagename.SetActive(true);
+        Villagename.GetComponent<Text>().text = GameManager.VillageName;
+    }
+
+    public void ShowInfo소지금()
+    {
+        소지금액.SetActive(true);
+        소지금액.GetComponent<Text>().text = Gold.GOLD.ToString();
     }
 }
