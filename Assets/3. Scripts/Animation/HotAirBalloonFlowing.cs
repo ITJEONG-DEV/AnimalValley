@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class HotAirBalloonFlowing : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed = 0.5f;
+    public float timeLimit = 1.0f;
+    bool isUp;
+    float time;
+
     void Start()
     {
-        
+        time = 0.0f;
+        isUp = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        time += Time.deltaTime;
+
+        if (isUp)
+            transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * speed);
+        else
+            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
+
+        if(time>=timeLimit)
+        {
+            time = 0.0f;
+            isUp = !isUp;
+        }
     }
 }
