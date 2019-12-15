@@ -360,21 +360,21 @@ public class GameManager : MonoBehaviour
     {
         return itemList;
     }
-    int Day
+    public static int Day
     {
         get
         {
             return GameTime.day;
         }
     }
-    int Hour
+    public static int Hour
     {
         get
         {
             return GameTime.hour;
         }
     }
-    int Minute
+    public static int Minute
     {
         get
         {
