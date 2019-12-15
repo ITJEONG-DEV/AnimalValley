@@ -351,259 +351,275 @@ public class testMoving_YJ : MonoBehaviour
 
     }
     string seed_name=null;
+    bool alive = true;
+
+    public void faint()
+    {
+        StartCoroutine("dead");
+    }
+
+    IEnumerable dead()
+    {
+        ani.SetBool("die", true);
+        yield return new WaitForSeconds(0.5f);
+        alive = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        Balance();
-        CameraDistanceCtrl();
-        showTool(itemCode);
-
-        move.y -= gravity * Time.deltaTime;
-        MoveCalc(1.0f);
-
-        cc.Move(move * Time.deltaTime);
-
-        #region 캐릭터 이동 애니메이션
-        //캐릭터 회전
-        if (Input.GetKey(KeyCode.D))
+        if (alive)
         {
-            dir = "D";
-            ani.SetBool("walk", true);
-            playerState = PLAYERSTATE.PLAYERSTATE_RUN;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            dir = "A";
-            ani.SetBool("walk", true);
-            playerState = PLAYERSTATE.PLAYERSTATE_RUN;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            dir = "W";
-            ani.SetBool("walk", true);
-            playerState = PLAYERSTATE.PLAYERSTATE_RUN;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            dir = "S";
-            ani.SetBool("walk", true);
-            playerState = PLAYERSTATE.PLAYERSTATE_RUN;
-        }
+            Balance();
+            CameraDistanceCtrl();
+            showTool(itemCode);
 
-        //키를 눌렀다 뗐을 경우
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            
-            ani.SetBool("walk", false);
-            playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+            move.y -= gravity * Time.deltaTime;
+            MoveCalc(1.0f);
 
-        }
+            cc.Move(move * Time.deltaTime);
 
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            ani.SetBool("walk", false);
-            playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
-
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            ani.SetBool("walk", false);
-            playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
-
-        }
-
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            ani.SetBool("walk", false);
-            playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
-                    
-        }
-
-        //캐릭터 점프(GetKeyDown은 최초 누르는 한 번만 호출됨)
-        //if (playerState != PLAYERSTATE.PLAYERSTATE_JUMP)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        Vector3 moveVec = new Vector3(0, jumpPower, 0);
-        //        cc.Move(moveVec * Time.deltaTime);
-        //        ani.SetBool("Jump", true);
-        //        playerState = PLAYERSTATE.PLAYERSTATE_JUMP;
-        //    }
-        //}
-        //if (Input.GetKeyUp(KeyCode.Space))
-        //{
-        //    ani.SetBool("Jump", false);
-        //    playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
-        //}
-
-        //캐릭터 구르기
-        //if (playerState != PLAYERSTATE.PLAYERSTATE_Roll)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.E))
-        //    {
-        //        StartCoroutine(Rolling());
-        //    }
-        //}
-        #endregion
-
-        #region 스킬
-        if (Input.GetKey(KeyCode.Mouse1))       //마우스 오른쪽 키
-        {
-            
-            if (itemCode == "RSG0")
+            #region 캐릭터 이동 애니메이션
+            //캐릭터 회전
+            if (Input.GetKey(KeyCode.D))
             {
-                seed_name = "RSG0";
+                dir = "D";
+                ani.SetBool("walk", true);
+                playerState = PLAYERSTATE.PLAYERSTATE_RUN;
             }
-            else if (itemCode == "RSG1")
+            if (Input.GetKey(KeyCode.A))
             {
-                seed_name = "RSG1";
+                dir = "A";
+                ani.SetBool("walk", true);
+                playerState = PLAYERSTATE.PLAYERSTATE_RUN;
             }
-            else if (itemCode == "RSV0")
+            if (Input.GetKey(KeyCode.W))
             {
-                seed_name = "RSV0";
+                dir = "W";
+                ani.SetBool("walk", true);
+                playerState = PLAYERSTATE.PLAYERSTATE_RUN;
             }
-            else if (itemCode == "RSV1")
+            if (Input.GetKey(KeyCode.S))
             {
-                seed_name = "RSV1";
-            }
-            else if (itemCode == "RSV2")
-            {
-                seed_name = "RSV2";
-            }
-            else if (itemCode == "RSV3")
-            {
-                seed_name = "RSV3";
-            }
-            else if (itemCode == "RSV4")
-            {
-                seed_name = "RSV4";
-            }
-            else if (itemCode == "RSV8")
-            {
-                seed_name = "RSV8";
-            }
-            else if (itemCode == "RSCR")
-            {
-                seed_name = "RSCR";
-            }
-            else if (itemCode == "RSCW")
-            {
-                seed_name = "RSCW";
-            }
-            else if (itemCode == "RSCS")
-            {
-                seed_name = "RSCS";
+                dir = "S";
+                ani.SetBool("walk", true);
+                playerState = PLAYERSTATE.PLAYERSTATE_RUN;
             }
 
-
-            if (itemCode.Substring(0, 2) == "RS")
+            //키를 눌렀다 뗐을 경우
+            if (Input.GetKeyUp(KeyCode.W))
             {
-                string[] names = new string[2];
-                names[0] = groundName;
-                names[1] = seed_name;
-                ani.SetBool("block", true);
-                temp_1 = "block";
+
+                ani.SetBool("walk", false);
+                playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+
+            }
+
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+                ani.SetBool("walk", false);
+                playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+
+            }
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                ani.SetBool("walk", false);
+                playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+
+            }
+
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                ani.SetBool("walk", false);
+                playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+
+            }
+
+            //캐릭터 점프(GetKeyDown은 최초 누르는 한 번만 호출됨)
+            //if (playerState != PLAYERSTATE.PLAYERSTATE_JUMP)
+            //{
+            //    if (Input.GetKeyDown(KeyCode.Space))
+            //    {
+            //        Vector3 moveVec = new Vector3(0, jumpPower, 0);
+            //        cc.Move(moveVec * Time.deltaTime);
+            //        ani.SetBool("Jump", true);
+            //        playerState = PLAYERSTATE.PLAYERSTATE_JUMP;
+            //    }
+            //}
+            //if (Input.GetKeyUp(KeyCode.Space))
+            //{
+            //    ani.SetBool("Jump", false);
+            //    playerState = PLAYERSTATE.PLAYERSTATE_IDLE;
+            //}
+
+            //캐릭터 구르기
+            //if (playerState != PLAYERSTATE.PLAYERSTATE_Roll)
+            //{
+            //    if (Input.GetKeyDown(KeyCode.E))
+            //    {
+            //        StartCoroutine(Rolling());
+            //    }
+            //}
+            #endregion
+
+            #region 스킬
+            if (Input.GetKey(KeyCode.Mouse1))       //마우스 오른쪽 키
+            {
+
+                if (itemCode == "RSG0")
+                {
+                    seed_name = "RSG0";
+                }
+                else if (itemCode == "RSG1")
+                {
+                    seed_name = "RSG1";
+                }
+                else if (itemCode == "RSV0")
+                {
+                    seed_name = "RSV0";
+                }
+                else if (itemCode == "RSV1")
+                {
+                    seed_name = "RSV1";
+                }
+                else if (itemCode == "RSV2")
+                {
+                    seed_name = "RSV2";
+                }
+                else if (itemCode == "RSV3")
+                {
+                    seed_name = "RSV3";
+                }
+                else if (itemCode == "RSV4")
+                {
+                    seed_name = "RSV4";
+                }
+                else if (itemCode == "RSV8")
+                {
+                    seed_name = "RSV8";
+                }
+                else if (itemCode == "RSCR")
+                {
+                    seed_name = "RSCR";
+                }
+                else if (itemCode == "RSCW")
+                {
+                    seed_name = "RSCW";
+                }
+                else if (itemCode == "RSCS")
+                {
+                    seed_name = "RSCS";
+                }
+
+
+                if (itemCode.Substring(0, 2) == "RS")
+                {
+                    string[] names = new string[2];
+                    names[0] = groundName;
+                    names[1] = seed_name;
+                    ani.SetBool("block", true);
+                    temp_1 = "block";
+                    if (groundName != null)
+                        GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("sowSeed", names);
+                }
+
+
+            }
+            if (Input.GetKey(KeyCode.Mouse0))       //마우스 왼쪽 키
+            {
+
                 if (groundName != null)
-                    GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("sowSeed", names);
-            }
+                    GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("growingCrops", groundName);
+                playerState = PLAYERSTATE.PLAYERSTATE_ACTION;
 
-
-        }
-        if (Input.GetKey(KeyCode.Mouse0))       //마우스 왼쪽 키
-        {
-           
-            if (groundName!=null)
-                GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("growingCrops", groundName);
-            playerState = PLAYERSTATE.PLAYERSTATE_ACTION;
-
-            if (itemCode == null)  //액션, 상호작용
-            {
-                if(trunk_near)
-                    StartCoroutine("trunkPicking");
-
-            }
-            else if (itemCode.Substring(0, 3) == "TTS")    // 낫
-            {
-                ani.SetBool("sickle", true);
-                temp = "sickle";
-                GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("harvestCrops", groundName);
-
-            }
-            else if (itemCode.Substring(0, 3) == "TTH")    //괭이
-            {
-                ani.SetBool("axe(pick)", true); 
-                temp = "axe(pick)";
-                hasShovel = true;
-                if (hasShovel == true && groundName != null)
+                if (itemCode == null)  //액션, 상호작용
                 {
-                    Debug.Log(groundName);
-                    GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("plowGround", groundName);
-                    hasShovel = false;
-                    groundName = null;
+                    if (trunk_near)
+                        StartCoroutine("trunkPicking");
+
+                }
+                else if (itemCode.Substring(0, 3) == "TTS")    // 낫
+                {
+                    ani.SetBool("sickle", true);
+                    temp = "sickle";
+                    GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("harvestCrops", groundName);
+
+                }
+                else if (itemCode.Substring(0, 3) == "TTH")    //괭이
+                {
+                    ani.SetBool("axe(pick)", true);
+                    temp = "axe(pick)";
+                    hasShovel = true;
+                    if (hasShovel == true && groundName != null)
+                    {
+                        Debug.Log(groundName);
+                        GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("plowGround", groundName);
+                        hasShovel = false;
+                        groundName = null;
+                    }
+
+                }
+                else if (itemCode.Substring(0, 3) == "TTP")    //곡괭이
+                {
+                    ani.SetBool("axe(pick)", true);
+                    temp = "axe(pick)";
+
+                }
+                else if (itemCode.Substring(0, 3) == "TTW")    //물뿌리개
+                {
+                    ani.SetBool("watering", true);
+                    temp = "watering";
+                    hasWatering = true;
+                    if (hasWatering == true && groundName != null)
+                    {
+                        GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("waterGround", groundName);
+                        hasWatering = false;
+                    }
+
+                }
+                else if (itemCode.Substring(0, 3) == "TTA")     //도끼
+                {
+                    StartCoroutine("chopping");
+
+                }
+                else if (itemCode.Substring(0, 3) == "TTF")     //낚싯대
+                {
+                    ani.SetBool("fishing", true);
+                    temp = "fishing";
+                }
+                else if (itemCode.Substring(0, 3) == "THW")      //사냥,무기
+                {
+                    ani.SetBool("attack1", true);
+                    temp = "attack1";
+                    playerState = PLAYERSTATE.PLAYERSTATE_ATTACK;
                 }
 
-            }
-            else if (itemCode.Substring(0, 3) == "TTP")    //곡괭이
-            {
-                ani.SetBool("axe(pick)", true);
-                temp = "axe(pick)";
 
             }
-            else if (itemCode.Substring(0, 3) == "TTW")    //물뿌리개
+
+            if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                ani.SetBool("watering", true);
-                temp = "watering";
-                hasWatering = true;
-                if (hasWatering == true && groundName != null)
-                {
-                    GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("waterGround", groundName);
-                    hasWatering = false;
-                }
+                ani.SetBool(temp, false);
 
             }
-            else if (itemCode.Substring(0, 3) == "TTA")     //도끼
+
+            if (Input.GetKeyUp(KeyCode.Mouse1))
             {
-                StartCoroutine("chopping");
+                ani.SetBool(temp_1, false);
 
             }
-            else if (itemCode.Substring(0, 3) == "TTF")     //낚싯대
-            {
-                ani.SetBool("fishing", true);
-                temp = "fishing";
-            }
-            else if (itemCode.Substring(0, 3) == "THW")      //사냥,무기
-            {
-                ani.SetBool("attack1", true);
-                temp = "attack1";
-                playerState = PLAYERSTATE.PLAYERSTATE_ATTACK;
-            }
 
-            
+
+            //if (playerState == PLAYERSTATE.PLAYERSTATE_ATTACK)
+            //{
+            //    if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 왼쪽 클릭
+            //    {
+            //        StartCoroutine(Attack(Weapon_case));   //무기의 종류에따라 
+            //    }
+            //}
+
+            #endregion
         }
-
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            ani.SetBool(temp, false);
-            
-        }
-
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            ani.SetBool(temp_1, false);
-
-        }
-
-
-        //if (playerState == PLAYERSTATE.PLAYERSTATE_ATTACK)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 왼쪽 클릭
-        //    {
-        //        StartCoroutine(Attack(Weapon_case));   //무기의 종류에따라 
-        //    }
-        //}
-
-        #endregion
     }
 
     public void showTool(string itemCode)
