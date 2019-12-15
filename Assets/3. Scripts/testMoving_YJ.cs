@@ -57,7 +57,7 @@ public class testMoving_YJ : MonoBehaviour
         cameraParentTransform = cameraTransform.parent;
         cc = GetComponent<CharacterController>();
         treeChoppingSound = GetComponent<AudioSource>();
-
+        GameManager.isStart = true;
     }
     GameObject tree_temp;
     bool wetCheck = false;
@@ -75,7 +75,7 @@ public class testMoving_YJ : MonoBehaviour
         if (other.tag == "ground" || other.tag == "wetGround")
         {
       
-            Debug.Log("밑의 지반 이름" + other.gameObject.name);
+            // Debug.Log("밑의 지반 이름" + other.gameObject.name);
 
             //Debug.Log("트리거는 됨");
             if (other.gameObject.name == "(3,0)")
@@ -365,6 +365,9 @@ public class testMoving_YJ : MonoBehaviour
         alive = false;
     }
 
+    public static bool isStart = false;
+    public static bool isEnd = false;
+    GameObject you;
     // Update is called once per frame
     void Update()
     {
@@ -378,6 +381,39 @@ public class testMoving_YJ : MonoBehaviour
             MoveCalc(1.0f);
 
             cc.Move(move * Time.deltaTime);
+
+            //
+            Debug.Log("isStart " + isStart + " isEnd " + isEnd);
+
+            // raycast
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (isEnd)
+                {
+                    isStart = false;
+                    isEnd = false;
+                    you.SendMessage("UIOff");
+                }
+                else
+                {
+                    if (!isStart)
+                    {
+                        RaycastHit hit;
+
+                        if (Physics.Raycast(transform.position, transform.forward, out hit, 3))
+                        {
+                            if (hit.collider.gameObject.tag == "NPC")
+                            {
+                                isStart = true;
+                                you = hit.collider.gameObject;
+                                you.SendMessage("Speak");
+                            }
+                        }
+
+                    }
+                }
+            }
+
 
             #region 캐릭터 이동 애니메이션
             //캐릭터 회전
@@ -631,9 +667,9 @@ public class testMoving_YJ : MonoBehaviour
         Vector3 playerPos = transform.position;
         Vector3 difference = toolPos - playerPos;
         GameObject newTool;
-        Debug.Log(tool.name);
+        // Debug.Log(tool.name);
         GameObject[] family;
-        Debug.Log(tool.transform.position);
+        // Debug.Log(tool.transform.position);
         if (itemCode == null)  //액션, 상호작용
         {
             if(hasTool==true)
@@ -882,8 +918,6 @@ public class testMoving_YJ : MonoBehaviour
         tree_near = false;
     }
 
-
-
     //IEnumerator Attack(int weapon)
     //{
     //    playerState = PLAYERSTATE.PLAYERSTATE_ATTACK;
@@ -1001,7 +1035,4 @@ public class testMoving_YJ : MonoBehaviour
             move.y = -1;
     }
 
-    
-
 }
-

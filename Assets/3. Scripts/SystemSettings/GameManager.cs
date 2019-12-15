@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
     private string characterAppearanceInfo;
 
     public static bool isStart = false;
-    private static bool isRunStart = false;
 
     public static bool TALKING = false;
 
@@ -75,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // Debug.Log("isStart : " + isStart);
         if(currentSceneString.Equals(SceneManager.GetActiveScene()))
         {
             // character position
@@ -82,21 +82,14 @@ public class GameManager : MonoBehaviour
             currentSceneString = "";
             CHARACTER.transform.position = characterPosition;
         }
-        Debug.Log(isStart);
-        if(isStart)
+
+        if (isStart)
         {
-            Debug.Log(isRunStart);
-            if(!isRunStart)
-            {
-                sun.SetActive(false);
-                moon.SetActive(false);
-
-
-
-                ShowGold();
-                ShowHp();
-                ShowEnergy();
-            }
+            sun.SetActive(false);
+            moon.SetActive(false);
+            ShowGold();
+            ShowHp();
+            ShowEnergy();
 
             if (!inventory.MenuStatus || TALKING)
             {
