@@ -25,6 +25,14 @@ public class Conversation : MonoBehaviour
             {"Teacher", new List<string>()}
     };
 
+    public void UIOff()
+    {
+        ProFile.SetActive(false);
+        conversation.SetActive(false);
+        mynameis.SetActive(false);
+        speech.SetActive(false);
+    }
+
     void Start()
     {
         conversation.SetActive(false);
@@ -103,10 +111,10 @@ public class Conversation : MonoBehaviour
         #endregion
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        
     }
     
     IEnumerator Chat(string narrator, string narration)
@@ -120,13 +128,18 @@ public class Conversation : MonoBehaviour
 
             //yield return new WaitForSeconds(3.0f);
             yield return null;
+
+            testMoving_YJ.isEnd = true;
         }
     }
     
     void Speak()
     {
         conversation.SetActive(true);
+        ProFile.GetComponent<Image>().sprite = profile;
         ProFile.SetActive(true);
+        mynameis.SetActive(true);
+        speech.SetActive(true);
         System.Random rand = new System.Random();
         string namee = this.name;
         int random = rand.Next(0, NpcConversation[namee].Count - 1); 

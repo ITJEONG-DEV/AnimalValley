@@ -14,8 +14,6 @@ enum PLAYERSTATE
 }
 public class testMoving_YJ : MonoBehaviour
 {
-    GameObject you;
-
     Collider co;
     public static string itemCode;
     [SerializeField] float gravity = 9.81f;      //중력
@@ -368,6 +366,9 @@ public class testMoving_YJ : MonoBehaviour
         alive = false;
     }
 
+    public static bool isStart = false;
+    public static bool isEnd = false;
+    GameObject you;
     // Update is called once per frame
     void Update()
     {
@@ -381,6 +382,39 @@ public class testMoving_YJ : MonoBehaviour
             MoveCalc(1.0f);
 
             cc.Move(move * Time.deltaTime);
+
+            //
+            Debug.Log("isStart " + isStart + " isEnd " + isEnd);
+
+            // raycast
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (isEnd)
+                {
+                    isStart = false;
+                    isEnd = false;
+                    you.SendMessage("UIOff");
+                }
+                else
+                {
+                    if (!isStart)
+                    {
+                        RaycastHit hit;
+
+                        if (Physics.Raycast(transform.position, transform.forward, out hit, 3))
+                        {
+                            if (hit.collider.gameObject.tag == "NPC")
+                            {
+                                isStart = true;
+                                you = hit.collider.gameObject;
+                                you.SendMessage("Speak");
+                            }
+                        }
+
+                    }
+                }
+            }
+
 
             #region 캐릭터 이동 애니메이션
             //캐릭터 회전
@@ -927,22 +961,6 @@ public class testMoving_YJ : MonoBehaviour
         ////여기서 헷갈리면 안 되는게 GetAxisRaw("Mouse XY") 는 실제 마우스의 움직임의 x좌표 y좌표를 가져오지만 회전은 축 기준이라 x가 위아래고 y가 좌우이다.
 
         //cameraParentTransform.localEulerAngles = mouseMove;
-
-        
-        // raycast
-        if(Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-
-            if (Physics.Raycast(transform.position, transform.forward, out hit, 3))
-            {
-                if (hit.collider.gameObject.tag == "NPC")
-                {
-                    you = hit.collider.gameObject;
-                    you.SendMessage("Speak");
-                }
-            }
-        }
     }
 
     void Balance()
