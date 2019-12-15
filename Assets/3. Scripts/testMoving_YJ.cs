@@ -31,6 +31,7 @@ public class testMoving_YJ : MonoBehaviour
     int Weapon_case;
     Animator ani;
     string temp = null;
+    string temp_1 = null;
     Vector3 mouseMove;
     Vector3 move;
     Transform cameraParentTransform;
@@ -38,12 +39,13 @@ public class testMoving_YJ : MonoBehaviour
     CharacterController cc;
     private PLAYERSTATE playerState;
     private Vector3 playerDir;
-   
+    GameObject trunk_temp;
     private float verticalVelocity;
     public AudioSource treeChoppingSound;
     bool hasShovel = false;
     bool hasWatering = false;
     bool tree_near=false;
+    Vector3 trunkPos;
     // Use this for initialization
     void Awake()
     {    
@@ -64,6 +66,7 @@ public class testMoving_YJ : MonoBehaviour
     public static string groundName=null;
     string baseName = null;
     string dir = null;
+    bool trunk_near = false;
 
     int treeCount = 0;
     private void OnTriggerEnter(Collider other)   //보는 방향이랑 구간으로 개간하는 땅 정한다.
@@ -338,6 +341,12 @@ public class testMoving_YJ : MonoBehaviour
             tree_temp = other.gameObject;
             Debug.Log(tree_temp.transform.name);
             tree_near = true;
+            trunkPos = other.transform.position;
+        }
+        else if(other.tag=="trunk")
+        {
+            trunk_temp = other.gameObject;
+            trunk_near = true;
         }
 
     }
@@ -441,7 +450,7 @@ public class testMoving_YJ : MonoBehaviour
         #region 스킬
         if (Input.GetKey(KeyCode.Mouse1))       //마우스 오른쪽 키
         {
-            seed_name = "RSG0";
+            
             if (itemCode == "RSG0")
             {
                 seed_name = "RSG0";
@@ -486,41 +495,42 @@ public class testMoving_YJ : MonoBehaviour
             {
                 seed_name = "RSCS";
             }
-          
 
 
-            //if (seed_name.Substring(0, 2) == "RS")
-            //{
-            //    string[] names = new string[2];
-            //    names[0] = groundName;
-            //    names[1] = seed_name;
-            //    if (groundName != null)
-            //        GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("sowSeed", names);
-            //}
+            if (itemCode.Substring(0, 2) == "RS")
+            {
+                string[] names = new string[2];
+                names[0] = groundName;
+                names[1] = seed_name;
+                ani.SetBool("block", true);
+                temp_1 = "block";
+                if (groundName != null)
+                    GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("sowSeed", names);
+            }
 
 
         }
         if (Input.GetKey(KeyCode.Mouse0))       //마우스 왼쪽 키
         {
-            if(groundName!=null)
+           
+            if (groundName!=null)
                 GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("growingCrops", groundName);
             playerState = PLAYERSTATE.PLAYERSTATE_ACTION;
 
             if (itemCode == null)  //액션, 상호작용
             {
-                //ani.SetBool("block", true);
-                //temp = "block";
-                StartCoroutine("chopping");
+                if(trunk_near)
+                    StartCoroutine("trunkPicking");
 
             }
-            else if (itemCode.Substring(0, 2) == "TTS")    // 낫
+            else if (itemCode.Substring(0, 3) == "TTS")    // 낫
             {
                 ani.SetBool("sickle", true);
                 temp = "sickle";
                 GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("harvestCrops", groundName);
 
             }
-            else if (itemCode.Substring(0, 2) == "TTH")    //괭이
+            else if (itemCode.Substring(0, 3) == "TTH")    //괭이
             {
                 ani.SetBool("axe(pick)", true); 
                 temp = "axe(pick)";
@@ -534,13 +544,13 @@ public class testMoving_YJ : MonoBehaviour
                 }
 
             }
-            else if (itemCode.Substring(0, 2) == "TTP")    //곡괭이
+            else if (itemCode.Substring(0, 3) == "TTP")    //곡괭이
             {
                 ani.SetBool("axe(pick)", true);
                 temp = "axe(pick)";
 
             }
-            else if (itemCode.Substring(0, 2) == "TTW")    //물뿌리개
+            else if (itemCode.Substring(0, 3) == "TTW")    //물뿌리개
             {
                 ani.SetBool("watering", true);
                 temp = "watering";
@@ -552,31 +562,17 @@ public class testMoving_YJ : MonoBehaviour
                 }
 
             }
-            else if (itemCode.Substring(0, 2) == "TTA")     //도끼
+            else if (itemCode.Substring(0, 3) == "TTA")     //도끼
             {
-                ani.SetBool("axe(pick)", true);
-                temp = "axe(pick)";
-                treeChoppingSound.Play();
-                if (tree_near)
-                {
-                    if (treeCount == 3)
-                    {
-                        Destroy(tree_temp);
-                        treeCount = 0;
-                    }
-                    else
-                    {
-                        treeCount++;
-                    }
-                }
-                
+                StartCoroutine("chopping");
+
             }
-            else if (itemCode.Substring(0, 2) == "TTF")     //낚싯대
+            else if (itemCode.Substring(0, 3) == "TTF")     //낚싯대
             {
                 ani.SetBool("fishing", true);
                 temp = "fishing";
             }
-            else if (itemCode.Substring(0, 2) == "THW")      //사냥,무기
+            else if (itemCode.Substring(0, 3) == "THW")      //사냥,무기
             {
                 ani.SetBool("attack1", true);
                 temp = "attack1";
@@ -592,6 +588,12 @@ public class testMoving_YJ : MonoBehaviour
             
         }
 
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            ani.SetBool(temp_1, false);
+
+        }
+
 
         //if (playerState == PLAYERSTATE.PLAYERSTATE_ATTACK)
         //{
@@ -604,6 +606,15 @@ public class testMoving_YJ : MonoBehaviour
         #endregion
     }
 
+    IEnumerator trunkPicking()
+    {
+        ani.SetBool("pickUp", true);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(trunk_temp);
+        temp = "pickUp";
+        trunk_near = false;
+        ani.SetBool(temp, false);
+    }
     IEnumerator chopping()
     {
         ani.SetBool("axe(pick)", true);
@@ -616,7 +627,8 @@ public class testMoving_YJ : MonoBehaviour
             if (treeCount == 3)
             {
                 Destroy(tree_temp);
-                treeCount = 1;
+                GameObject.Find("House_6").GetComponent<cropManager>().SendMessage("choppingTree", trunkPos);
+                treeCount = 0;
             }
             else
             {

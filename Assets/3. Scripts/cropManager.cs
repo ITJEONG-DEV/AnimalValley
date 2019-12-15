@@ -12,7 +12,7 @@ public class cropManager : MonoBehaviour
     public GameObject seed;
     public GameObject[] plants_lv2;  //2단계 작물 프리팹
     public GameObject[] plants_lv3;   //3단계 작물 프리팹
-
+    public GameObject trunk;
     public List<GameObject>[,] crops_;
     int x;
     int y;
@@ -111,6 +111,12 @@ public class cropManager : MonoBehaviour
 
         return i;
         
+    }
+
+    public void choppingTree(Vector3 pos)
+    {
+        Vector3 randPos = new Vector3(Random.Range(-1,1),0, Random.Range(-1, 1));
+        Instantiate(trunk,pos+ randPos, Quaternion.identity);
     }
 
     public void waterGround(string _area)    //물뿌리기

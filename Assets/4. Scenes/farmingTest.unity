@@ -42154,6 +42154,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: f7e5828b67230ef4c92c98797b810cb2, type: 3}
   - {fileID: 100000, guid: 72ec714f624ccae4bb3abbb61c422493, type: 3}
   - {fileID: 100000, guid: 5c27923e230c9554bbcf5ca43d3f7c61, type: 3}
+  trunk: {fileID: 157452, guid: fe3bb12a762d53943a189dea51583147, type: 3}
 --- !u!1001 &1982261530
 PrefabInstance:
   m_ObjectHideFlags: 0
