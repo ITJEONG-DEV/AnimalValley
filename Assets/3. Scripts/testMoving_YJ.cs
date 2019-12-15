@@ -55,7 +55,8 @@ public class testMoving_YJ : MonoBehaviour
         myTransform = transform;
         model = transform.GetChild(0);
         ani = model.GetComponent<Animator>();
-        cameraTransform = Camera.main.transform;
+        // cameraTransform = Camera.main.transform;
+        cameraTransform = transform.parent.GetChild(0).GetChild(0);
         cameraParentTransform = cameraTransform.parent;
         cc = GetComponent<CharacterController>();
         treeChoppingSound = GetComponent<AudioSource>();
@@ -602,7 +603,6 @@ public class testMoving_YJ : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
                 ani.SetBool(temp, false);
-
             }
 
             if (Input.GetKeyUp(KeyCode.Mouse1))

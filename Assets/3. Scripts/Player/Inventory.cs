@@ -21,9 +21,12 @@ public class Inventory : MonoBehaviour
     private int MenuIndex;
     public bool MenuOn;
 
+    private bool isStart = false;
 
-    public GameObject[] SemiInven_Icon; //인벤토리에서 아이템 아이콘 저장하는 배열
-    public GameObject[] SemiInven_Number; //인벤토리에서 아이템 개수 저장하는 배열
+    public GameObject SemiInven_Icon_Parent;
+    GameObject[] SemiInven_Icon; //인벤토리에서 아이템 아이콘 저장하는 배열
+    public GameObject SemiInven_Number_Parent;
+    GameObject[] SemiInven_Number; //인벤토리에서 아이템 개수 저장하는 배열
 
     GameObject[] Inven_Icon = new GameObject[30];  //메뉴에서 아이템 아이콘 저장하는 배열
     GameObject[] Inven_Number = new GameObject[30]; //메뉴에서 아이템 개수 저장하는 배열
@@ -31,22 +34,30 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MenuIndex = 0;
-        MenuOn = false;
-        for(int i = 0; i < 6; i++)
-        {
-            Menu[i].SetActive(false);
-        }
-        Menu_Selectbox.SetActive(false);
-
-        // initial
-        SemiInven_Icon = new GameObject[10];
-        SemiInven_Number = new GameObject[10];
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.Ready & !isStart)
+        {
+            isStart = true;
+            MenuIndex = 0;
+            MenuOn = false;
+            for (int i = 0; i < 6; i++)
+            {
+                Menu[i].SetActive(false);
+            }
+            Menu_Selectbox.SetActive(false);
+
+            // initial
+            SemiInven_Icon = new GameObject[10];
+            for (int i = 0; i < 10; i++)
+                SemiInven_Icon[i] = SemiInven_Icon_Parent.transform.GetChild(i).gameObject;
+            SemiInven_Number = new GameObject[10];
+            for (int i = 0; i < 10; i++)
+                SemiInven_Number[i] = SemiInven_Number_Parent.transform.GetChild(i).gameObject;
+        }
         Inventory_Select();
         if (Input.GetKeyDown(KeyCode.Escape))
         {

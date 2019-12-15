@@ -27,7 +27,7 @@ public class Item
         //itemIcon = "Assets/Item/Icon" + itemCode + ".png";
         //itemPrefab = "Assets/Item/Prefab" + itemCode + ".prefab";
 
-        Debug.Log(ToString());
+        // Debug.Log(ToString());
     }
 
     public string ToString()
