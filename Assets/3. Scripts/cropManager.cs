@@ -5,7 +5,6 @@ using UnityEngine;
 public class cropManager : MonoBehaviour
 {
     public string[,] seedItem;
-    public string[,] seedString;
     public GameObject mud_prefab;
     public Material mud;
     public Material normalGround;

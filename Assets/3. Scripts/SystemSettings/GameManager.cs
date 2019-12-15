@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
         // 게임 시작 시, 초기 설정(불러오기)
         InitialSettings();
         isReady = true;
+        Timer.SetActive(true);
     }
 
     void Update()
@@ -81,8 +82,10 @@ public class GameManager : MonoBehaviour
             currentSceneString = "";
             CHARACTER.transform.position = characterPosition;
         }
+        Debug.Log(isStart);
         if(isStart)
         {
+            Debug.Log(isRunStart);
             if(!isRunStart)
             {
                 sun.SetActive(false);
@@ -136,6 +139,7 @@ public class GameManager : MonoBehaviour
             ShowTime();
             ShowSun();
         }
+
 
     }
 
