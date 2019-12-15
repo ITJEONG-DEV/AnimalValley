@@ -79,8 +79,11 @@ public class Inventory : MonoBehaviour
         string Number = "";
         for (int i = 0; i < 10; i++)
         {
-            SemiInven_Icon[i].GetComponent<Image>().sprite = Resources.Load("0000", typeof(Sprite)) as Sprite;
-            SemiInven_Number[i].GetComponent<Text>().text = Number;
+            if(SemiInven_Icon[i] != null)
+                SemiInven_Icon[i].GetComponent<Image>().sprite = Resources.Load("0000", typeof(Sprite)) as Sprite;
+
+            if(SemiInven_Number[i] != null)
+                SemiInven_Number[i].GetComponent<Text>().text = Number;
         }
     }
 

@@ -24,6 +24,15 @@ public class GameManager : MonoBehaviour
     private string valleyName;
 
     private Inventory inventory;
+    private static bool isReady = false;
+
+    public static bool Ready
+    {
+        get
+        {
+            return isReady;
+        }
+    }
 
     void Start()
     {
@@ -31,6 +40,8 @@ public class GameManager : MonoBehaviour
 
         // 게임 시작 시, 초기 설정(불러오기)
         InitialSettings();
+
+        isReady = true;
 
         AddItem("RCV0", 3);
         AddItem("TTAM", 1);

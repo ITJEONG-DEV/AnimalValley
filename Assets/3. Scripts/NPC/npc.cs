@@ -10,6 +10,8 @@ public class npc : MonoBehaviour
     private int day, hour, minute;
     bool isMove;
 
+    private float speed = 0.3f;
+
     Vector3 unitVector;
     Vector3 destPoint = new Vector3(-1, -1, -1);
 
@@ -17,86 +19,136 @@ public class npc : MonoBehaviour
     int numberOfMovement;
     Queue<string> movePoint;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        day = GameManager.Day;
-        hour = GameManager.Hour;
-        minute = GameManager.Minute;
-
-        isMove = false;
-
-        unitVector = Vector3.zero;
-
-        movePoint = new Queue<string>();
-
-        switch (name)
-        {
-            case "ppap":
-                SetPPAP();
-                break;
-        }
-
-        SetInitialPosition(currentPlace);
-    }
-
+    bool isReady = false;
+    
     // Update is called once per frame
     void Update()
     {
-        // 움직이고 있지 않음
-        if(!isMove)
+        if(GameManager.Ready && !isReady)
         {
-            GetComponent<Animator>().SetBool("move", false);
-        }
-        // 움직이는 중임
-        else
-        {
-            if(destPoint.x == -1 && destPoint.y == -1 && destPoint.z == -1)
-            {
-                destPoint = GetPointPosition(movePoint.Dequeue());
+            day = GameManager.Day;
+            hour = GameManager.Hour;
+            minute = GameManager.Minute;
 
-                Vector3 currentPoint = transform.position;
+            Debug.Log("day : " + day + " hour : " + hour + "minute : " + minute);
 
-                if(Mathf.Abs(currentPoint.x - destPoint.x) <= 0.1f)
-                {
-                    transform.position = new Vector3(destPoint.x, currentPoint.y, currentPoint.z);
+            isMove = false;
 
-                    unitVector.x = 0;
-                }
-                else
-                {
-                    unitVector.x = 1;
-                }
+            unitVector = Vector3.zero;
 
-                if(Mathf.Abs(currentPoint.x - destPoint.z) <= 0.1f)
-                {
-                    transform.position = new Vector3(currentPoint.x, currentPoint.y, destPoint.z);
+            movePoint = new Queue<string>();
 
-                    unitVector.z = 0;
-                }
-                else
-                {
-                    unitVector.z = 1;
-                }
-
-            }
-            transform.Translate(unitVector * Time.deltaTime, Space.World);
-
-            GetComponent<Animator>().SetBool("move", true);
-        }
-
-        day = GameManager.Day;
-        hour = GameManager.Hour;
-        minute = GameManager.Minute;
-
-        // 목적지까지 이동한 경우
-        if(movePoint.Count==0)
-        {
             switch (name)
             {
                 case "ppap":
-                    GetPPAPPath();
+                    SetPPAP();
                     break;
+            }
+
+            SetInitialPosition(currentPlace);
+
+            isReady = true;
+        }
+
+        if(isReady)
+        {
+            // 움직이고 있지 않음
+            if (!isMove)
+            {
+                GetComponent<Animator>().SetBool("walk", false);
+            }
+            // 움직이는 중임
+            else
+            {
+                GetComponent<Animator>().SetBool("walk", true);
+
+                if (destPoint.x == -1 && destPoint.y == -1 && destPoint.z == -1)
+                {
+                    destPoint = GetPointPosition(movePoint.Dequeue());
+
+                    Vector3 currentPoint = transform.position;
+
+                    float xGap = destPoint.x - currentPoint.x;
+                    if (Mathf.Abs(xGap) <= 0.1f)
+                    {
+                        transform.position = new Vector3(destPoint.x, currentPoint.y, currentPoint.z);
+
+                        unitVector.x = 0;
+                    }
+                    else if(xGap > 0.1f)
+                    {
+                        unitVector.x = 1;
+                    }
+                    else
+                    {
+                        unitVector.x = -1;
+                    }
+
+                    float zGap = destPoint.z - currentPoint.z;
+                    if (Mathf.Abs(zGap) <= 0.1f)
+                    {
+                        transform.position = new Vector3(currentPoint.x, currentPoint.y, destPoint.z);
+
+                        unitVector.z = 0;
+                    }
+                    else if(zGap > 0.1f)
+                    {
+                        unitVector.z = 1;
+                    }
+                    else
+                    {
+                        unitVector.z = -1;
+                    }
+
+                    if (unitVector.x == 0 && unitVector.z == 1)
+                        transform.rotation = Quaternion.Euler(0, 0, 0);
+                    else if (unitVector.x == 0 && unitVector.z == -1)
+                        transform.rotation = Quaternion.Euler(0, 180, 0);
+
+                    else if (unitVector.x == -1 && unitVector.z == 0)
+                        transform.rotation = Quaternion.Euler(0, -90, 0);
+                    else if (unitVector.x == 1 && unitVector.z == 0)
+                        transform.rotation = Quaternion.Euler(0, 90, 0);
+                }
+
+                transform.Translate(unitVector * Time.deltaTime * speed, Space.World);
+
+                float length = Mathf.Sqrt(
+                    Mathf.Pow(Mathf.Abs(destPoint.x - transform.position.x), 2) +
+                    Mathf.Pow(Mathf.Abs(destPoint.z - transform.position.z), 2)
+                    );
+
+                if(length <= 0.01)
+                {
+                    transform.position = new Vector3(destPoint.x, transform.position.y, destPoint.z);
+                    destPoint = new Vector3(-1, -1, -1);
+                    unitVector = new Vector3(0, 0, 0);
+
+                    if (movePoint.Count == 0)
+                    {
+                        isMove = false;
+                        transform.rotation = Quaternion.Euler(0, 0, 0);
+                    }
+                }
+            }
+
+            day = GameManager.Day;
+            hour = GameManager.Hour;
+            minute = GameManager.Minute;
+
+            // 목적지까지 이동한 경우
+            if (movePoint.Count == 0)
+            {
+                switch (name)
+                {
+                    case "ppap":
+                        GetPPAPPath();
+                        break;
+                }
+            }
+            else
+            {
+                isMove = true;
             }
         }
     }
@@ -138,6 +190,7 @@ public class npc : MonoBehaviour
                 movePoint.Enqueue("09");
                 movePoint.Enqueue("10");
                 movePoint.Enqueue("11");
+                movePoint.Enqueue("B");
                 break;
             case "BA":
                 movePoint.Enqueue("11");
@@ -152,6 +205,7 @@ public class npc : MonoBehaviour
                 movePoint.Enqueue("02");
                 movePoint.Enqueue("01");
                 movePoint.Enqueue("00");
+                movePoint.Enqueue("A");
                 break;
             case "BC":
                 movePoint.Enqueue("11");
@@ -160,6 +214,7 @@ public class npc : MonoBehaviour
                 movePoint.Enqueue("13");
                 movePoint.Enqueue("14");
                 movePoint.Enqueue("15");
+                movePoint.Enqueue("C");
                 break;
             case "CB":
                 movePoint.Enqueue("15");
@@ -168,6 +223,7 @@ public class npc : MonoBehaviour
                 movePoint.Enqueue("16");
                 movePoint.Enqueue("17");
                 movePoint.Enqueue("11");
+                movePoint.Enqueue("B");
                 break;
         }
     }
