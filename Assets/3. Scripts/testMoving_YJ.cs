@@ -14,7 +14,8 @@ enum PLAYERSTATE
 }
 public class testMoving_YJ : MonoBehaviour
 {
-   
+    GameObject you;
+
     public static string itemCode;
     [SerializeField] float gravity = 9.81f;      //중력
     [SerializeField] float runSpeed = 5.0f;      //달리는 속도
@@ -222,6 +223,18 @@ public class testMoving_YJ : MonoBehaviour
         //}
 
         #endregion
+
+        // raycast
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position, transform.forward, out hit, 3))
+        {
+            if(hit.collider.gameObject.tag == "NPC")
+            {
+                you = hit.collider.gameObject;
+                you.SendMessage("Speak");
+            }
+        }
     }
     //IEnumerator Attack(int weapon)
     //{
