@@ -67,7 +67,7 @@ public class testMoving_YJ : MonoBehaviour
     string baseName = null;
     string dir = null;
     bool trunk_near = false;
-
+    bool hasTool = false;
     int treeCount = 0;
     private void OnTriggerEnter(Collider other)   //보는 방향이랑 구간으로 개간하는 땅 정한다.
     {
@@ -357,7 +357,7 @@ public class testMoving_YJ : MonoBehaviour
     {
         Balance();
         CameraDistanceCtrl();
-    
+        showTool(itemCode);
 
         move.y -= gravity * Time.deltaTime;
         MoveCalc(1.0f);
@@ -606,6 +606,232 @@ public class testMoving_YJ : MonoBehaviour
         #endregion
     }
 
+    public void showTool(string itemCode)
+    {   
+        //GameObject tool = transform.GetChild(0).GetComponent<character_helper>().weapon_locator;
+        GameObject tool = transform.GetChild(0).transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Scapula_R").transform.Find("Shoulder_R").transform.Find("Elbow_R").transform.Find("Wrist_R").transform.Find("WeaponR_locator").gameObject;
+        Vector3 toolPos = transform.GetChild(0).transform.Find("Root_M").transform.Find("Spine1_M").transform.Find("Chest_M").transform.Find("Scapula_R").transform.Find("Shoulder_R").transform.Find("Elbow_R").transform.Find("Wrist_R").transform.Find("WeaponR_locator").transform.position;
+        //위는 무기 위치
+        Vector3 playerPos = transform.position;
+        Vector3 difference = toolPos - playerPos;
+        GameObject newTool;
+        Debug.Log(tool.name);
+        GameObject[] family;
+        Debug.Log(tool.transform.position);
+        if (itemCode == null)  //액션, 상호작용
+        {
+            if(hasTool==true)
+            {
+                for (int i= 0; i < tool.transform.childCount; i++)
+                {
+                    if (tool.transform.GetChild(i).gameObject.activeSelf == true)
+                        tool.transform.GetChild(i).gameObject.SetActive(false);
+                }
+                hasTool = false;
+            }
+        }
+        else if (itemCode.Substring(0, 3) == "TTS")    // 낫
+        {
+            if(hasTool==true)
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+                    if (tool.transform.GetChild(i).gameObject.activeSelf == true && tool.transform.GetChild(i).gameObject.name != "TTSM Variant")
+                    {
+                        tool.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                    if (tool.transform.GetChild(i).gameObject.name == "TTSM Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+
+                    if (tool.transform.GetChild(i).gameObject.name == "TTSM Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+
+            }
+
+        }
+        else if (itemCode.Substring(0, 3) == "TTH")    //괭이
+        {
+            if (hasTool == true)
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+                    if (tool.transform.GetChild(i).gameObject.activeSelf == true && tool.transform.GetChild(i).gameObject.name != "TTHM (1) Variant")
+                    {
+                        tool.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                    if (tool.transform.GetChild(i).gameObject.name == "TTHM (1) Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+
+                    if (tool.transform.GetChild(i).gameObject.name == "TTHM (1) Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+
+            }
+
+        }
+        else if (itemCode.Substring(0, 3) == "TTP")    //곡괭이
+        {
+            if (hasTool == true)
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+                    if (tool.transform.GetChild(i).gameObject.activeSelf == true && tool.transform.GetChild(i).gameObject.name != "TTPM Variant")
+                    {
+                        tool.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                    if (tool.transform.GetChild(i).gameObject.name == "TTPM Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+
+                    if (tool.transform.GetChild(i).gameObject.name == "TTPM Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+
+            }
+        }
+        else if (itemCode.Substring(0, 3) == "TTW")    //물뿌리개
+        {
+            if (hasTool == true)
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+                    if (tool.transform.GetChild(i).gameObject.activeSelf == true && tool.transform.GetChild(i).gameObject.name != "WateringCanPrefab Variant")
+                    {
+                        tool.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                    if (tool.transform.GetChild(i).gameObject.name == "WateringCanPrefab Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+
+                    if (tool.transform.GetChild(i).gameObject.name == "WateringCanPrefab Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+
+            }
+
+
+        }
+        else if (itemCode.Substring(0, 3) == "TTA")     //도끼  
+        {
+
+            if (hasTool == true)
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+                    if (tool.transform.GetChild(i).gameObject.activeSelf == true && tool.transform.GetChild(i).gameObject.name != "axe (2) Variant")
+                    {
+                        tool.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                    if (tool.transform.GetChild(i).gameObject.name == "axe (2) Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+           
+            }
+            else
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+                
+                    if (tool.transform.GetChild(i).gameObject.name == "axe (2) Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+
+            }
+           
+            //GetComponent<character_helper>().weapon_locator.transform.position, transform.GetComponent<character_helper>().weapon_locator.transform.rotation
+        }
+        else if (itemCode.Substring(0, 3) == "TTF")     //낚싯대
+        {
+            if (hasTool == true)
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+                    if (tool.transform.GetChild(i).gameObject.activeSelf == true && tool.transform.GetChild(i).gameObject.name != "TTFM")
+                    {
+                        tool.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                    if (tool.transform.GetChild(i).gameObject.name == "TTFM")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+
+                    if (tool.transform.GetChild(i).gameObject.name == "TTFM")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+
+            }
+        }
+        else if (itemCode.Substring(0, 3) == "THW")      //사냥,무기
+        {
+            if (hasTool == true)
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+                    if (tool.transform.GetChild(i).gameObject.activeSelf == true && tool.transform.GetChild(i).gameObject.name != "SwordToyB Variant")
+                    {
+                        tool.transform.GetChild(i).gameObject.SetActive(false);
+                    }
+                    if (tool.transform.GetChild(i).gameObject.name == "SwordToyB Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+            }
+            else
+            {
+                for (int i = 0; i < tool.transform.childCount; i++)
+                {
+
+                    if (tool.transform.GetChild(i).gameObject.name == "SwordToyB Variant")
+                        tool.transform.GetChild(i).gameObject.SetActive(true);
+
+                }
+
+            }
+
+        }
+
+
+    }
+
     IEnumerator trunkPicking()
     {
         ani.SetBool("pickUp", true);
@@ -639,6 +865,7 @@ public class testMoving_YJ : MonoBehaviour
         }
         tree_near = false;
     }
+
 
 
     //IEnumerator Attack(int weapon)
