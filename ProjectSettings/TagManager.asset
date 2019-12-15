@@ -13,6 +13,7 @@ TagManager:
   - dog
   - ground
   - wetGround
+  - tree
   layers:
   - Default
   - TransparentFX
